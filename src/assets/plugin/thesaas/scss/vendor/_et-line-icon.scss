@@ -8,16 +8,16 @@
 // Will rollback as soon as resolving the issue
 //
 
-// @font-face {
-//   font-family: 'et-line';
-//   src:url('~fonts/et-line.eot');
-//   src:url('fonts/et-line.eot?#iefix') format('embedded-opentype'),
-//     url('fonts/et-line.woff') format('woff'),
-//     url('fonts/et-line.ttf') format('truetype'),
-//     url('fonts/et-line.svg#et-line') format('svg');
-//   font-weight: normal;
-//   font-style: normal;
-// }
+@font-face {
+  font-family: 'et-line';
+  src:url('~fonts/et-line.eot');
+  src:url('fonts/et-line.eot?#iefix') format('embedded-opentype'),
+    url('fonts/et-line.woff') format('woff'),
+    url('fonts/et-line.ttf') format('truetype'),
+    url('fonts/et-line.svg#et-line') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 
 /* Use the following CSS code if you want to use data attributes for inserting your icons */
 [data-icon]:before {
@@ -359,13 +359,13 @@ you can use the generic selector below, but it's slower:
 
 // Change font path.
 //
-// @font-face {
-//   font-family: 'et-line';
-//   src: url('../fonts/et-line.eot');
-//   src: url('../fonts/et-line.eot?#iefix') format('embedded-opentype'),
-//        url('../fonts/et-line.woff') format('woff'),
-//        url('../fonts/et-line.ttf') format('truetype'),
-//        url('../fonts/et-line.svg#et-line') format('svg');
-//   font-weight: normal;
-//   font-style: normal;
-// }
+@font-face {
+  font-family: 'et-line';
+  src: url('../fonts/et-line.eot');
+  src: url('../fonts/et-line.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/et-line.woff') format('woff'),
+       url('../fonts/et-line.ttf') format('truetype'),
+       url('../fonts/et-line.svg#et-line') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
