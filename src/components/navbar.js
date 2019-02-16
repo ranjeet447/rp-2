@@ -9,7 +9,7 @@ const Navbar = ({ siteTitle }) => (
 
         <div className="navbar-left">
           <button className="navbar-toggler" type="button">&#9776;</button>
-          <a className="navbar-brand" href="../index.html">
+          <a className="navbar-brand" href="/">
             <img className="logo-dark" src={logo} alt="logo"/>
             <img className="logo-light" src={logo} alt="logo"/>
           </a>

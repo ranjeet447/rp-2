@@ -7,8 +7,8 @@ import Footer from "./footer"
 import Navbar from "./navbar"
 import "./layout.css"
 
-// import "../assets/css/page.css"
 import '../assets/scss/page.scss'
+
 // require('../assets/js/src/page')
 
 const Layout = ({ children }) => (
@@ -35,7 +35,6 @@ const Layout = ({ children }) => (
           // }}
         >
         <main>{children}</main>
-          
         </div>
         <Footer/>
         <br/>
@@ -49,3 +48,6 @@ Layout.propTypes = {
 }
 
 export default Layout
+
+
+

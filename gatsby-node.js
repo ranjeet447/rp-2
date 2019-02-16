@@ -55,7 +55,7 @@
 //   };
 
 
-
+var webpack = require('webpack')
 exports.onCreateWebpackConfig = ({
     stage,
     rules,
@@ -72,17 +72,22 @@ exports.onCreateWebpackConfig = ({
                 exclude: /node_modules/,
                 loader: 'file-loader'
             },
-            {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'file-loader?mimetype=image/svg+xml'},
-            {test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader?mimetype=application/font-woff"},
-            {test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader?mimetype=application/font-woff"},
-            {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader?mimetype=application/octet-stream"},
-            {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader"},
+            // {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'file-loader?mimetype=image/svg+xml'},
+            // {test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader?mimetype=application/font-woff"},
+            // {test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader?mimetype=application/font-woff"},
+            // {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader?mimetype=application/octet-stream"},
+            // {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader"},
         ],
         },
         plugins: [
-        plugins.define({
-            __DEVELOPMENT__: stage === `develop` || stage === `develop-html`,
-        }),
+            // plugins.define({
+            //     __DEVELOPMENT__: stage === `develop` || stage === `develop-html`,
+            // }),
+            new webpack.ProvidePlugin({   
+                jQuery: 'jquery',
+                $: 'jquery',
+                jquery: 'jquery'
+            })
         ],
     })
     }
