@@ -2,63 +2,58 @@
 import PropTypes from "prop-types"
 import React from "react"
 
-import logo from '../assets/img/logo-light.png'
 
 const Footer = () => (
-      <footer className="footer bg-dark text-white py-7">
-        <div className="container">
-          <div className="row">
+  <footer className="footer bg-gray py-9">
+    <div className="container">
+      <div className="row gap-y">
 
-            <div className="col-12">
-              <p><a href="/"><img src={logo} alt="logo"/></a></p>
-            </div>
+        <div className="col-md-6 col-xl-4">
+          <p><a href="#"><img src="/assets/img/logo-dark.png" alt="logo"/></a></p>
+          <p>We can combine beautiful, modern designs with clean, functional and high-performance code to produce stunning websites.</p>
+        </div>
 
-            <div className="col-xl-5">
-              <p>We’re a team of experienced designers and developers. We can combine beautiful, modern designs with clean, functional and high-performance code to produce stunning websites.</p>
-              <div className="social social-sm social-bg-brand social-cycling mt-6">
-                <a className="social-facebook" href="/"><i className="fa fa-facebook"></i></a>
-                <a className="social-twitter" href="/"><i className="fa fa-twitter"></i></a>
-                <a className="social-youtube" href="/"><i className="fa fa-youtube"></i></a>
-                <a className="social-instagram" href="/"><i className="fa fa-instagram"></i></a>
-              </div>
-              <hr className="d-xl-none"/>
-            </div>
-
-            <div className="col-4 col-xl-2 offset-xl-1">
-              <div className="nav flex-column">
-                <a className="nav-link" href="/about">About</a>
-                <a className="nav-link" href="/jobs">Jobs</a>
-                <a className="nav-link" href="/blogs">Blogs</a>
-              </div>
-            </div>
-
-            <div className="col-4 col-xl-2">
-              <div className="nav flex-column">
-                <a className="nav-link" href="/campus">Campus</a>
-                <a className="nav-link" href="/connect">Connect</a>
-                <a className="nav-link" href="/faq">FAQ</a>
-              </div>
-            </div>
-
-            <div className="col-4 col-xl-2">
-              <div className="nav flex-column">
-                <a className="nav-link" href="/request">Requests</a>
-                <a className="nav-link" href="/terms">T&amp;C</a>
-                <a className="nav-link" href="/video">Video</a>
-              </div>
-            </div>
-
+        <div className="col-6 col-md-3 col-xl-2">
+          <h6 className="mb-4 mt-1"><strong>Company</strong></h6>
+          <div className="nav flex-column">
+            <a className="nav-link" href="#">About</a>
+            <a className="nav-link" href="#">Careers</a>
+            <a className="nav-link" href="#">Contact</a>
           </div>
         </div>
-      </footer>
+
+        <div className="col-6 col-md-3 col-xl-2">
+          <h6 className="mb-4 mt-1"><strong>Product</strong></h6>
+          <div className="nav flex-column">
+            <a className="nav-link" href="#">Features</a>
+            <a className="nav-link" href="#">Pricing</a>
+            <a className="nav-link" href="#">Security</a>
+          </div>
+        </div>
+
+        <div className="col-6 col-md-6 col-xl-2">
+          <h6 className="mb-4 mt-1"><strong>Support</strong></h6>
+          <div className="nav flex-column">
+            <a className="nav-link" href="#">Help Center</a>
+            <a className="nav-link" href="#">API</a>
+            <a className="nav-link" href="#">FAQ</a>
+          </div>
+        </div>
+
+        <div className="col-6 col-md-6 col-xl-2 text-center">
+          <p><a className="btn btn-block btn-round btn-secondary" href="#">Try it free</a></p>
+          <br/>
+          <div className="social social-bordered">
+            <a className="social-facebook" href="#"><i className="fa fa-facebook"></i></a>
+            <a className="social-twitter" href="#"><i className="fa fa-twitter"></i></a>
+            <a className="social-youtube" href="#"><i className="fa fa-youtube"></i></a>
+            <a className="social-instagram" href="#"><i className="fa fa-instagram"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </footer>
 )
-
-Footer.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Footer.defaultProps = {
-  siteTitle: ``,
-}
 
 export default Footer
