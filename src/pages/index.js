@@ -4,32 +4,43 @@ import Layout from "../components/layout"
 // import Image from "../components/image"
 import SEO from "../components/seo"
 import Navbar from '../components/navbar'
+import {StaticQuery, graphql } from "gatsby";
 
-const IndexPage = () => (
+export default function IndexPage(){
+  return(
   <Layout>
     <SEO title="Home" keywords={[]} />
     {/* <Header header="Home"/> */}
     <Navbar/>
-    <header className="header h-fullscreen" style={{backgroundImage: 'linear-gradient(135deg, #f9f7ff 0%, #fff 50%, #f6f3ff 100%)'}}>
-      <div className="container">
-        <div className="row align-items-center h-100">
+    <StaticQuery
+      query={HeaderQuery}
+      render={data =>(
+        <header className="header h-fullscreen" style={{backgroundImage: 'linear-gradient(135deg, #f9f7ff 0%, #fff 50%, #f6f3ff 100%)'}}>
+          <div className="container">
+            <div className="row align-items-center h-100">
+              {/* <p>{data}</p> */}
+              {console.log(data.allIndexYaml.edges[0].node.title)}
+              <div className="col-lg-6">
+                {/* <h1 className="fw-600">Build your <span className="text-warning">Brand.</span><br/><span className="text-info">Sell</span> more stuff.</h1> */}
+                <h1 className="fw-600">{data.allIndexYaml.edges[0].node.title}</h1>
+                {/* <p className="lead mt-5 mb-8">TheSaaS is the world’s largest marketing automation platform. It’s like a second brain that helps millions of customers find their audience, engage their customers, and build their brand.</p> */}
+                <p className="lead mt-5 mb-8">{data.allIndexYaml.edges[0].node.description}</p>                
+                <p className="gap-xy">
+                  <a className="btn btn-round btn-primary mw-200" href="#">Sign up — Free</a>
+                  <a className="btn btn-round btn-outline-secondary mw-200" href="#">Learn more</a>
+                </p>
+              </div>
 
-          <div className="col-lg-6">
-            <h1 className="fw-600">Build your <span className="text-warning">Brand.</span><br/><span className="text-info">Sell</span> more stuff.</h1>
-            <p className="lead mt-5 mb-8">TheSaaS is the world’s largest marketing automation platform. It’s like a second brain that helps millions of customers find their audience, engage their customers, and build their brand.</p>
-            <p className="gap-xy">
-              <a className="btn btn-round btn-primary mw-200" href="#">Sign up — Free</a>
-              <a className="btn btn-round btn-outline-secondary mw-200" href="#">Learn more</a>
-            </p>
+              <div className="col-lg-5 ml-auto d-none d-lg-block">
+                <img src="assets/img/vector/18.png" alt="img"/>
+              </div>
+
+            </div>
           </div>
-
-          <div className="col-lg-5 ml-auto d-none d-lg-block">
-            <img src="assets/img/vector/18.png" alt="img"/>
-          </div>
-
-        </div>
-      </div>
-    </header>
+        </header>
+      )}
+    />
+    
 
     {/* <!-- Main Content --> */}
     <main className="main-content">
@@ -332,6 +343,19 @@ const IndexPage = () => (
       </div>
     </div>
   </Layout>
-)
+  )
+}
 
-export default IndexPage
+
+const HeaderQuery = graphql`
+query {
+  allIndexYaml {
+    edges {
+      node {
+        title,
+        description
+      }
+    }
+  }
+}
+`

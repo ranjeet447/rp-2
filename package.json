@@ -19,6 +19,7 @@
     "gatsby-plugin-sharp": "^2.0.20",
     "gatsby-source-filesystem": "^2.0.20",
     "gatsby-transformer-sharp": "^2.1.13",
+    "gatsby-transformer-yaml": "^2.1.8",
     "granim": "^2.0.0",
     "imagesloaded": "^4.1.4",
     "jarallax": "^1.10.7",
