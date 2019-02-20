@@ -47,7 +47,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `./src/data/`,
+        path: `${__dirname}/src/pages/`,
       },
     },
     // 'gatsby-plugin-offline',

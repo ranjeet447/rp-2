@@ -1,42 +1,45 @@
 import React from "react"
 // import { Link } from "gatsby"
-import Layout from "../components/layout"
+import Layout from "../../components/layout"
 // import Image from "../components/image"
-import SEO from "../components/seo"
-import Navbar from '../components/navbar'
+import SEO from "../../components/seo"
+import Navbar from '../../components/navbar'
 import {StaticQuery, graphql } from "gatsby";
 
 export default function IndexPage(){
   return(
   <Layout>
-    <SEO title="Home" description="Awsome website" keywords={[]} />
+    <SEO title="Home" keywords={[]} />
     <Navbar/>
     <StaticQuery
       query={Query}
       render={data =>(
-        <>
+        <div>
           <header className="header h-fullscreen" style={{backgroundImage: 'linear-gradient(135deg, #f9f7ff 0%, #fff 50%, #f6f3ff 100%)'}}>
             <div className="container">
               <div className="row align-items-center h-100">
+                {console.log(data.allHeaderYaml.edges[0].node.title)}
                 <div className="col-lg-6">
                   {/* <h1 className="fw-600">Build your <span className="text-warning">Brand.</span><br/><span className="text-info">Sell</span> more stuff.</h1> */}
                   <h1 className="fw-600">{data.allHeaderYaml.edges[0].node.title}</h1>
                   {/* <p className="lead mt-5 mb-8">TheSaaS is the world’s largest marketing automation platform. It’s like a second brain that helps millions of customers find their audience, engage their customers, and build their brand.</p> */}
                   <p className="lead mt-5 mb-8">{data.allHeaderYaml.edges[0].node.description}</p>                
                   <p className="gap-xy">
-                    <a className="btn btn-round btn-primary mw-200" href={data.allHeaderYaml.edges[1].node.link}>{data.allHeaderYaml.edges[1].node.link_text}</a>
-                    <a className="btn btn-round btn-outline-secondary mw-200" href={data.allHeaderYaml.edges[2].node.link}>{data.allHeaderYaml.edges[2].node.link_text}</a>
+                    <a className="btn btn-round btn-primary mw-200" href="#">Sign up — Free</a>
+                    <a className="btn btn-round btn-outline-secondary mw-200" href="#">Learn more</a>
                   </p>
                 </div>
 
                 <div className="col-lg-5 ml-auto d-none d-lg-block">
-                  <img src={`index/images/${data.allHeaderYaml.edges[0].node.image}`} alt="img"/>
+                  <img src="assets/img/vector/18.png" alt="img"/>
                 </div>
 
               </div>
             </div>
           </header>
 
+  
+    
 
           {/* <!-- Main Content --> */}
           <main className="main-content">
@@ -46,28 +49,71 @@ export default function IndexPage(){
             <div className="container">
               <header className="section-header">
                 <small>Feature</small>
-                <h2>{data.allFeaturesYaml.edges[0].node.header}</h2>
+                <h2>Send better email</h2>
                 <hr/>
-                <p className="lead">{data.allFeaturesYaml.edges[0].node.description}</p>
+                <p className="lead">Whether you need to sell your products, share some big news, or tell a story, our campaign builder makes it easy to create email campaigns that best suit your message.</p>
               </header>
 
               <div className="row gap-y">
+
                 <div className="col-md-8 mx-auto mb-7">
-                  <img src={`index/images/${data.allFeaturesYaml.edges[0].node.image}`} alt="..." data-aos="fade-up" data-aos-duration="2000"/>
+                  <img src="../assets/img/preview/feature-tablet.png" alt="..." data-aos="fade-up" data-aos-duration="2000"/>
                 </div>
                 <div className="w-100"></div>
-                {data.allFeaturesYaml.edges.slice(1).map((feature,key)=>(
-                  <div className="col-md-6 col-xl-4" key={key}>
-                    <div className="media">
-                      <div className="lead-6 line-height-1 text-lighter w-70px"><i className={feature.node.icon}></i></div>
-                      <div className="media-body">
-                        <h5>{feature.node.header}</h5>
-                        <p>{feature.node.description}</p>
-                      </div>
+                <div className="col-md-6 col-xl-4">
+                  <div className="media">
+                    <div className="lead-6 line-height-1 text-lighter w-70px"><i className="icon-mobile"></i></div>
+                    <div className="media-body">
+                      <h5>Responsive</h5>
+                      <p>Your website works on any device: desktop, tablet or mobile.</p>
                     </div>
                   </div>
-                ))}
-                
+                </div>
+                <div className="col-md-6 col-xl-4">
+                  <div className="media">
+                    <div className="lead-6 line-height-1 text-lighter w-70px"><i className="icon-gears"></i></div>
+                    <div className="media-body">
+                      <h5>Customizable</h5>
+                      <p>You can easily read, edit, and write your own code, or change everything.</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-6 col-xl-4">
+                  <div className="media">
+                    <div className="lead-6 line-height-1 text-lighter w-70px"><i className="icon-tools"></i></div>
+                    <div className="media-body">
+                      <h5>UI Kit</h5>
+                      <p>There is a bunch of useful and necessary elements for developing your website.</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-6 col-xl-4">
+                  <div className="media">
+                    <div className="lead-6 line-height-1 text-lighter w-70px"><i className="icon-layers"></i></div>
+                    <div className="media-body">
+                      <h5>Lego Base</h5>
+                      <p>You can find our code well organized, commented and readable.</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-6 col-xl-4">
+                  <div className="media">
+                    <div className="lead-6 line-height-1 text-lighter w-70px"><i className="icon-recycle"></i></div>
+                    <div className="media-body">
+                      <h5>Clean Code</h5>
+                      <p>As you can see in the source code, we provided a clean code.</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-6 col-xl-4">
+                  <div className="media">
+                    <div className="lead-6 line-height-1 text-lighter w-70px"><i className="icon-chat"></i></div>
+                    <div className="media-body">
+                      <h5>Support</h5>
+                      <p>When you purchase this template, you'll freely receive future updates.</p>
+                    </div>
+                  </div>
+                </div>
 
               </div>
 
@@ -85,14 +131,14 @@ export default function IndexPage(){
               <div className="row">
 
                 <div className="col-md-6 align-self-center text-center text-md-left">
-                  <h2>{data.allSection3Yaml.edges[0].node.header}</h2><br/>
-                  <p>{data.allSection3Yaml.edges[0].node.description}</p>
+                  <h2>Automate your marketing</h2><br/>
+                  <p>Keep a personal touch while removing manual tasks from your to-do list. Pre-built marketing automation creates room to focus on strategy. Welcome, re-engage, and follow up with the people who matter to you. If you're new to marketing automation, get up to speed with one of our nifty guides: What is Marketing Automation?</p>
                   <br/>
-                  <a className="btn btn-lg btn-round btn-primary shadow-3" href={data.allSection3Yaml.edges[0].node.link}>{data.allSection3Yaml.edges[0].node.link_text}</a>
+                  <a className="btn btn-lg btn-round btn-primary shadow-3" href="#">Get Start Now</a>
                 </div>
 
                 <div className="col-md-5 mx-auto text-center mt-8 mt-md-0">
-                  <img src={`index/images/${data.allSection3Yaml.edges[0].node.image}`} alt="..." data-aos="fade-up"/>
+                  <img src="../assets/img/preview/phone-2.png" alt="..." data-aos="fade-up"/>
                 </div>
 
               </div>
@@ -127,6 +173,7 @@ export default function IndexPage(){
           !--> */}
 
           <section className="section">
+            {console.log(data.allTestimonialsYaml.edges)}
             <div className="container">
               <header className="section-header">
                 <small>Testimonials</small>
@@ -138,9 +185,10 @@ export default function IndexPage(){
               <div className="row gap-y text-center">
 
                 {data.allTestimonialsYaml.edges.map((testimonial,key)=>(
+                  // console.log(testimonial.node.name)
                   <div className="col-md-6" key={key}>
                     <blockquote className="blockquote">
-                      <div><img className="avatar avatar-xl" src={`index/images/${testimonial.node.image}`} alt="..."/></div>
+                      <div><img className="avatar avatar-xl" src={`../assets/img/avatar/${testimonial.node.image}`} alt="..."/></div>
                       <br/>
                       <p>{testimonial.node.text}</p>
                       <footer>{testimonial.node.name}</footer>
@@ -172,7 +220,7 @@ export default function IndexPage(){
                 {data.allVideosYaml.edges.map((video,key)=>(
                   <div className="col-lg-4" key={key}>
                     <div className="video-btn-wrapper">
-                      <img className="shadow-2 rounded" src={`index/images/${video.node.thumb}`} alt="..."/>
+                      <img className="shadow-2 rounded" src={`../assets/img/${video.node.thumb}`} alt="..."/>
                       <a className="btn btn-glass btn-circle btn-light" href={video.node.url} data-provide="lightbox"><i className="fa fa-play"></i></a>
                     </div>
                     <br/>
@@ -238,7 +286,7 @@ export default function IndexPage(){
           </section>
 
         </main>
-      </>
+      </div>
       )}
     />
 
@@ -280,9 +328,6 @@ query {
       node {
         title,
         description,
-        image,
-        link,
-        link_text
       }
     }
   },
@@ -302,27 +347,6 @@ query {
         thumb,
         type,
         text
-      }
-    }
-  },
-  allFeaturesYaml{
-    edges{
-      node{
-        header,
-        description,
-        image,
-        icon
-      }
-    }
-  },
-  allSection3Yaml{
-    edges{
-      node{
-        header,
-        description,
-        image,
-        link,
-        link_text
       }
     }
   }
