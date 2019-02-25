@@ -5,6 +5,8 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Navbar from '../components/navbar'
 import {StaticQuery, graphql } from "gatsby";
+import MyImg from '../components/image';
+
 
 export default function IndexPage(){
   return(
@@ -30,7 +32,7 @@ export default function IndexPage(){
                 </div>
 
                 <div className="col-lg-5 ml-auto d-none d-lg-block">
-                  <img src={`index/images/${data.allHeaderYaml.edges[0].node.image}`} alt="img"/>
+                  <MyImg src={`index/images/${data.allHeaderYaml.edges[0].node.image}`} alt="img"/>
                 </div>
 
               </div>
@@ -172,7 +174,7 @@ export default function IndexPage(){
                 {data.allVideosYaml.edges.map((video,key)=>(
                   <div className="col-lg-4" key={key}>
                     <div className="video-btn-wrapper">
-                      <img className="shadow-2 rounded" src={`index/images/${video.node.thumb}`} alt="..."/>
+                      <MyImg className="shadow-2 rounded" src={`index/images/${video.node.thumb}`} alt="..."/>
                       <a className="btn btn-glass btn-circle btn-light" href={video.node.url} data-provide="lightbox"><i className="fa fa-play"></i></a>
                     </div>
                     <br/>
@@ -217,26 +219,7 @@ export default function IndexPage(){
               </div>
             </div>
           </section>
-
-
-          {/* <!--
-          |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-          | Partners
-          |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-          !--> */}
-          <section className="section py-6 d-none">
-            <div className="container">
-              <div className="partner partner-sm">
-                <img src="../assets/img/partner/1.png" alt="partner 1"/>
-                <img src="/assets/img/partner/2.png" alt="partner 2"/>
-                <img src="/assets/img/partner/3.png" alt="partner 3"/>
-                <img src="/assets/img/partner/4.png" alt="partner 4"/>
-                <img src="/assets/img/partner/5.png" alt="partner 5"/>
-                <img src="/assets/img/partner/6.png" alt="partner 6"/>
-              </div>
-            </div>
-          </section>
-
+          
         </main>
       </>
       )}

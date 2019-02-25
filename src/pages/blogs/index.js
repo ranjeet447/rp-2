@@ -10,7 +10,7 @@ const BlogsPage = (props) => {
   const blogList = props.data.allMarkdownRemark;
   return(
     <Layout>
-    <SEO title="Blogs" keywords={[]} />
+    <SEO title="Blogs" description="BlogList" keywords={[]} />
     <NavbarLight/>
         <header className="header text-center text-white" style={{backgroundImage: 'linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%)'}}>
           <div className="container">
@@ -38,7 +38,7 @@ const BlogsPage = (props) => {
                     <a href={`${node.frontmatter.path}`}>
                     <img className="card-img-top" src={`/blogs/images/${node.frontmatter.image}`} alt="Card image cap"/>
                     <div className="p-6 text-center">
-                      <p className="small-5 text-lighter text-uppercase ls-2 fw-400" href="#">{node.frontmatter.date}</p>
+                      <p className="small-5 text-lighter text-uppercase ls-2 fw-400">{node.frontmatter.date}</p>
                       <h5 className="mb-0">{node.frontmatter.title}</h5>
                     </div>
                     </a>

@@ -6,13 +6,6 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -33,10 +26,6 @@ module.exports = {
         precision: 8,
         sourceMap: true,
         loader: 'sass-resources-loader',
-        options: {
-          // Provide path to the file with resources
-          // resources: './src/assets/fonts'
-        },
         includePaths: [
           require('path').resolve(__dirname, 'node_modules')
         ],
@@ -54,10 +43,10 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `blogs`,
-        path: `${__dirname}/src/pages/blogs`,
+        name: `images`,
+        path: `${__dirname}/src/pages/blogs/`,
       },
     },
-    // 'gatsby-plugin-offline',
+    'gatsby-plugin-offline',
   ],
 }

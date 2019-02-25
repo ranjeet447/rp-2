@@ -80,7 +80,7 @@ exports.createPages = ({ actions, graphql }) => {
                         path: node.frontmatter.path,
                         component: blogTemplate,
                         context: {
-                            slug:`blogs${node.frontmatter.path}`
+                            slug: node.fields.slug,
                         }, // additional data can be passed via context
                     })
                 })

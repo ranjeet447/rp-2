@@ -3,7 +3,7 @@ title: "my first Blog Post"
 path: "/blogs/post1"
 description: This post is related to the gatsbyjs
 date: '2019-02-24'
-image: 'thumb5.jpg'
+image: 'thumb1.jpg'
 ---
 Don't build a website with last decade's tech. The future of the web is mobile,
  JavaScript and APIs—the

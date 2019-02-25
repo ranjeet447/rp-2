@@ -1,15 +1,19 @@
 import React from 'react';
 import Layout from '../components/layout';
-
+import {graphql} from  'gatsby'
 import Navbar from '../components/navbar'
-
+import SEO from "../components/seo"
+import '../assets/scss/page.scss'
+import MyImg from '../components/image';
 
 
 function BlogPost(props) {
     const post = props.data.markdownRemark;
-    const { title,date,image } = post.frontmatter;
+    const { title,date,image,description } = post.frontmatter;
+    const {slug}=post.fields;
     return (
         <Layout>
+            <SEO title={title} description={description} keywords={[]} />
             <Navbar/>
             <main class="main-content">
                 <div class="section">
@@ -19,12 +23,10 @@ function BlogPost(props) {
                             <h2>{title}</h2>
                             <p>{date}</p>
                         </div>
-
-
-                        <div class="text-center my-8">
-                            <img class="rounded-md" src={`/blogs/images/${image}`} alt="..."/>
+                        {console.log(`${slug.substr(1)}images/${image}`)}
+                        <div class="text-center my-8 m-md-8">
+                            <MyImg className="rounded-md" src={`${slug.substr(1)}images/${image}`}/>
                         </div>
-
 
                         <div class="row">
                             <div class="col-lg-8 mx-auto">
@@ -44,6 +46,9 @@ export const query = graphql`
  query PostQuery($path: String!) {
      markdownRemark(frontmatter: { path: { eq: $path } }) {
        html
+       fields {
+        slug
+       }
        frontmatter {
         path
         title

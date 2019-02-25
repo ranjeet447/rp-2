@@ -25,7 +25,7 @@ const JobsPage = () => (
                   <hr className="w-60px"/>
                   <br/>
 
-                  <a className="btn btn-lg btn-round btn-light" href={data.allJobsHeaderYaml.edges[0].node.image}>{data.allJobsHeaderYaml.edges[0].node.link_text}</a>
+                  <a className="btn btn-lg btn-round btn-light" href={data.allJobsHeaderYaml.edges[0].node.link}>{data.allJobsHeaderYaml.edges[0].node.link_text}</a>
 
                 </div>
               </div>
@@ -101,7 +101,7 @@ const JobsPage = () => (
 
                           <hr className="w-100px"/>
 
-                          <p className="text-center"><a className="btn btn-lg btn-primary" href="career-single.html">Apply Now</a></p>
+                          <p className="text-center"><a className="btn btn-lg btn-primary" href="/jobs">Apply Now</a></p>
                         </div>
                       </div>
                     </div>

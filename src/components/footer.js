@@ -9,7 +9,7 @@ const Footer = () => (
       <div className="row gap-y">
 
         <div className="col-md-6 col-xl-4">
-          <p><a href="#"><img src="/assets/img/logo-dark.png" alt="logo"/></a></p>
+          <p><a href="/"><img src="/assets/img/logo-dark.png" alt="logo"/></a></p>
           <p>We can combine beautiful, modern designs with clean, functional and high-performance code to produce stunning websites.</p>
         </div>
 
