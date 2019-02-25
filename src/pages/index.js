@@ -142,7 +142,7 @@ export default function IndexPage(){
                 {data.allTestimonialsYaml.edges.map((testimonial,key)=>(
                   <div className="col-md-6" key={key}>
                     <blockquote className="blockquote">
-                      <div><img className="avatar avatar-xl" src={`index/images/${testimonial.node.image}`} alt="..."/></div>
+                      <div><MyImg className="avatar avatar-xl" src={`index/images/${testimonial.node.image}`} alt="..."/></div>
                       <br/>
                       <p>{testimonial.node.text}</p>
                       <footer>{testimonial.node.name}</footer>
