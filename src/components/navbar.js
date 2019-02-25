@@ -64,7 +64,7 @@ const Navbar = () => (
             <a className="nav-link" href="#">Pricing</a>
             <a className="nav-link" href="#">Support</a>
             <a className="nav-link" href="#">Learning</a>
-            <a className="nav-link" href="#">Blog</a>
+            <a className="nav-link" href="/blog">Blog</a>
           </nav>
 
           <div className="d-flex align-items-center">

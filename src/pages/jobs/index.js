@@ -5,8 +5,6 @@ import SEO from "../../components/seo"
 import NavbarLight from "../../components/navbar_light"
 import {StaticQuery, graphql } from "gatsby";
 
-import '../../assets/scss/page.scss'
-
 const JobsPage = () => (
   <Layout>
     <SEO title="Jobs" description="open job positions" keywords={[]} />

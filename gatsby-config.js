@@ -50,6 +50,14 @@ module.exports = {
         path: `${__dirname}/src/pages/`,
       },
     },
+    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `blogs`,
+        path: `${__dirname}/src/pages/blogs`,
+      },
+    },
     // 'gatsby-plugin-offline',
   ],
 }
