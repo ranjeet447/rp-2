@@ -1,9 +1,11 @@
 ---
 title: "My Blog post 2"
 path: "/blogs/post2"
-description: This post is related to the gatsbyjs
-date: '2019-02-25'
-image: 'thumb2.jpg'
+type: "blog"
+visibility: "show"
+description: "This post is related to the gatsbyjs"
+date: "2019-02-25"
+image: "./thumb2.jpg"
 ---
 Don't build a website with last decade's tech. The future of the web is mobile,
  JavaScript and APIs—the
@@ -16,6 +18,11 @@ the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
 and more recently with desktop publishing software like Aldus PageMaker including
 versions of Lorem Ipsum.
 ## Why do we use it?
+
+![alt](thumb5.jpg)
+
+No language indicated, so no syntax highlighting. 
+But let's throw in a <b>tag</b>.
 It is a long established fact that a reader will be distracted by the readable
 content of a page when looking at its layout. The point of using Lorem Ipsum
 is that it has a more-or-less normal distribution of letters, as opposed to using

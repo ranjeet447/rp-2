@@ -24,7 +24,7 @@ import Img from "gatsby-image"
 
 
 function renderImage(file,className) {
-  console.log(file);
+  // console.log(file);
   return <Img className={className} fluid={file.node.childImageSharp.fluid} />
 }
 

@@ -1,0 +1,92 @@
+Header:
+  - title: About us
+    description : Our company was founded in 2013 with a mission to create pretty templates for great startups. We can combine beautiful, modern designs with clean, functional and high-performance code to produce stunning websites. And best of all, we are super passionate about our work. Thought does cognitive into follow and rationale annoyed.
+
+ScrollImages:
+  - image: ./thumb12.jpg
+  - image: ./thumb13.jpg
+  - image: ./thumb14.jpg
+  - image: ./thumb15.jpg
+
+Mission:
+  - title: Our Mission
+    description: We’re a team of creative and experienced designers and developers. We used to work as freelancers and we know what do you need and more that, we know what do your customers want from you.
+
+MissionPoints:
+  - p: Pursue web-enabled niche markets with professionals
+  - p: Pursue web-enabled niche markets with professionals
+  - p: Pursue web-enabled niche markets with professionals
+  - p: Pursue web-enabled niche markets with professionals
+
+Numbers:
+  - head: FINISHED PROJECTS
+    number: 42
+
+  - head: HAPPY CUSTOMERS
+    number: 5478
+
+  - head: USER SATISFACTION
+    number: 100
+
+Testimonials:
+  - title: What People Say
+    description: We waited until we could do it right. Then we did! Instead of creating a carbon copy.
+
+  - name: Steve Jobs
+    quote: When you innovate, you make mistakes. It is best to admit them quickly, and get on with improving your other innovations.
+    image: ./avatar1.jpg
+
+  - name: John Jones
+    quote: Design everything on the assumption that people are not heartless or stupid but marvelously capable, given the chance.
+    image: ./avatar1.jpg
+
+  - name: Bill Gates
+    quote: Technology is just a tool. In terms of getting the kids working together and motivating them, the teacher is the most important.
+    image: ./avatar1.jpg
+
+Partners:
+  - image: ./partner1.png
+  - image: ./partner2.png
+  - image: ./partner3.png
+  - image: ./partner4.png
+  - image: ./partner5.png
+  - image: ./partner6.png
+
+Team:
+  - title: Meet The Team
+    description:  Meet our small team that make those great products
+
+TeamMembers:
+ - image: ./avatar1.jpg
+   name: Morgan Guadis
+   position: Co-Founder & CEO
+   facebook: /
+   twitter: /
+   instagram: / 
+
+ - image: ./avatar1.jpg
+   name: John Senating
+   position: Co-Founder & CTO
+   facebook: /
+   twitter: /
+   instagram: / 
+
+ - image: ./avatar1.jpg
+   name: Sandi Hormez
+   position: Lead Developer
+   facebook: /
+   twitter: /
+   instagram: / 
+
+ - image: ./avatar1.jpg
+   name: Animor Tiruse
+   position: Designer
+   facebook: /
+   twitter: /
+   instagram: / 
+
+Join:
+  - image: ./thumb12.jpg
+    title: Join Our Team.
+    link_text: View Openings
+    link: /jobs

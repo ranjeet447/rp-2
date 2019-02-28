@@ -1,0 +1,37 @@
+#campus
+header:
+  - title: How it works
+    description: Getting started and using our product is easy peasy!
+    image: ./bg1.jpg
+
+campus:
+  - number: 01
+    title: Write your requirements
+    description: Think the or organization same proposal to affected heard reclined in be it reassuring are attained opinion, by he neighbours even again. Is and by value and that like can could from world takes of great copy and delicacy compared he such that the in and with himself a the man.
+    image: ./vector1.png
+
+  - number: 02
+    title: Sign the contract
+    description: Think the or organization same proposal to affected heard reclined in be it reassuring are attained opinion, by he neighbours even again. Is and by value and that like can could from world takes of great copy and delicacy compared he such that the in and with himself a the man.
+    image: ./vector2.png
+      
+  - number: 03
+    title: We start developing
+    description: Think the or organization same proposal to affected heard reclined in be it reassuring are attained opinion, by he neighbours even again. Is and by value and that like can could from world takes of great copy and delicacy compared he such that the in and with himself a the man.
+    image: ./vector3.png
+    
+  - number: 04
+    title: Customer support begins
+    description: Think the or organization same proposal to affected heard reclined in be it reassuring are attained opinion, by he neighbours even again. Is and by value and that like can could from world takes of great copy and delicacy compared he such that the in and with himself a the man.
+    image: ./vector4.png
+
+  - number: 05
+    title: Customer support begins
+    description: Think the or organization same proposal to affected heard reclined in be it reassuring are attained opinion, by he neighbours even again. Is and by value and that like can could from world takes of great copy and delicacy compared he such that the in and with himself a the man.
+    image: ./vector5.png
+
+signUpForm:
+  - title: Start Using TheSaaS Now!
+    action: /
+    button: Get Started
+    image: bg1.jpg

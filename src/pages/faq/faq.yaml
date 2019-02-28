@@ -1,0 +1,33 @@
+#faq
+types:
+  - type: General 
+  - type: Licensing 
+
+questions:
+  - type: General
+    question: How can I update from version 1.x to 2.x?
+    answer: This is the second major release of TheSaaS which is based on the stable release of Bootstrap 4. The previous version (v1.x) is based on the Bootstrap 4 alpha-6. As the version number implies, this release contains a lot of breaking changes due to breaking changes from Bootstrap 4. So there's not any guide on how to upgrade from TheSaaS v1.x to TheSaaS v2.x. Since the v1.x is already stable enough, you don't have to upgrade your project at all—unless you have enough time to recreate it using the current release of TheSaaS. But if you're starting new project, TheSaaS v2.x is the right choice.
+  
+  - type: General
+    question: What is update policy?
+    answer: When you purchase a license of TheSaaS, you will receive a lifetime update. It means when we release a new version, you freely receive the new version.
+
+  - type: General
+    question: Which browsers are supported?
+    answer: Latest version of modern browsers and Internet Explorer 11. Modern browsers are Google Chrome, Mozilla Firefox, Safari, and Microsoft Edge.
+
+  - type: Licensing
+    question: What is reqular license?
+    answer: Regular license can be used for end products that do not charge users for access or service (access is free and there will be no monthly subscription fee).
+            Single regular license can be used for single end product and end product can be used by you or your client. If you want to sell end product to multiple clients then you will need to purchase separate license for each client. The same rule applies if you want to use the same end product on multiple domains (unique setup).
+            Read more about regular licenses.
+
+  - type: Licensing
+    question: What is extended license?
+    answer: Extended license can be used for end products (web service or SAAS) that charges users for access or service (e.g":" monthly subscription fee).
+            Single extended license can be used for single end product and end product can be used by you or your client. If you want to sell end product to multiple clients then you will need to purchase separate extended license for each client. The same rule applies if you want to use the same end product on multiple domains (unique setup).
+            Read more about regular licenses.
+
+  - type: Licensing
+    question: Is there any comparison of licenses?
+    answer: Yes, of course":" comparison of regular and extended licenses

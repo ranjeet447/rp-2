@@ -36,6 +36,7 @@ exports.createPages = ({ actions, graphql }) => {
         resolve(graphql(`
     {
       allMarkdownRemark(
+        filter : {frontmatter: {visibility:{eq:"show"}}},
         sort: { order: DESC, fields: [frontmatter___date] }
         limit: 100
       ) {

@@ -1,6 +1,6 @@
 - header: Send better email
   description: Whether you need to sell your products, share some big news, or tell a story, our campaign builder makes it easy to create email campaigns that best suit your message.
-  image: feature-tablet.png
+  image: ./feature-tablet.png
 
 - header: Responsive
   description: Your website works on any device desktop, tablet or mobile.

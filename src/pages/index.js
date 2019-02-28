@@ -1,11 +1,11 @@
 import React from "react"
 // import { Link } from "gatsby"
 import Layout from "../components/layout"
-// import Image from "../components/image"
 import SEO from "../components/seo"
 import Navbar from '../components/navbar'
 import {StaticQuery, graphql } from "gatsby";
-import MyImg from '../components/image';
+// import MyImg from '../components/image';
+import Img from 'gatsby-image'
 
 
 export default function IndexPage(){
@@ -32,7 +32,7 @@ export default function IndexPage(){
                 </div>
 
                 <div className="col-lg-5 ml-auto d-none d-lg-block">
-                  <MyImg src={`index/images/${data.allHeaderYaml.edges[0].node.image}`} alt="img"/>
+                  <Img fluid={data.allHeaderYaml.edges[0].node.image.childImageSharp.fluid}/>
                 </div>
 
               </div>
@@ -55,7 +55,7 @@ export default function IndexPage(){
 
               <div className="row gap-y">
                 <div className="col-md-8 mx-auto mb-7">
-                  <img src={`index/images/${data.allFeaturesYaml.edges[0].node.image}`} alt="..." data-aos="fade-up" data-aos-duration="2000"/>
+                  <Img fluid={data.allFeaturesYaml.edges[0].node.image.childImageSharp.fluid} alt="..." data-aos="fade-up" data-aos-duration="2000"/>
                 </div>
                 <div className="w-100"></div>
                 {data.allFeaturesYaml.edges.slice(1).map((feature,key)=>(
@@ -93,8 +93,8 @@ export default function IndexPage(){
                   <a className="btn btn-lg btn-round btn-primary shadow-3" href={data.allSection3Yaml.edges[0].node.link}>{data.allSection3Yaml.edges[0].node.link_text}</a>
                 </div>
 
-                <div className="col-md-5 mx-auto text-center mt-8 mt-md-0">
-                  <img src={`index/images/${data.allSection3Yaml.edges[0].node.image}`} alt="..." data-aos="fade-up"/>
+                <div className="col-md-5 mx-auto text-center mt-8 mt-md-0 p-8">
+                  <Img  fluid={data.allSection3Yaml.edges[0].node.image.childImageSharp.fluid} alt="..." data-aos="fade-up"/>
                 </div>
 
               </div>
@@ -142,7 +142,7 @@ export default function IndexPage(){
                 {data.allTestimonialsYaml.edges.map((testimonial,key)=>(
                   <div className="col-md-6" key={key}>
                     <blockquote className="blockquote">
-                      <div><MyImg className="avatar avatar-xl" src={`index/images/${testimonial.node.image}`} alt="..."/></div>
+                      <Img className="avatar avatar-xl m-auto" fluid={testimonial.node.image.childImageSharp.fluid} />
                       <br/>
                       <p>{testimonial.node.text}</p>
                       <footer>{testimonial.node.name}</footer>
@@ -174,7 +174,7 @@ export default function IndexPage(){
                 {data.allVideosYaml.edges.map((video,key)=>(
                   <div className="col-lg-4" key={key}>
                     <div className="video-btn-wrapper">
-                      <MyImg className="shadow-2 rounded" src={`index/images/${video.node.thumb}`} alt="..."/>
+                      <Img className="shadow-2 rounded" fluid={video.node.thumb.childImageSharp.fluid} alt="..."/>
                       <a className="btn btn-glass btn-circle btn-light" href={video.node.url} data-provide="lightbox"><i className="fa fa-play"></i></a>
                     </div>
                     <br/>
@@ -263,7 +263,13 @@ query {
       node {
         title,
         description,
-        image,
+        image{
+          childImageSharp{
+              fluid{
+                  ...GatsbyImageSharpFluid
+              }
+          }
+        },
         link,
         link_text
       }
@@ -274,7 +280,13 @@ query {
       node{
         name,
         text,
-        image
+        image{
+          childImageSharp{
+              fluid{
+                  ...GatsbyImageSharpFluid
+              }
+          }
+        }
       }
     }
   },
@@ -282,7 +294,13 @@ query {
     edges {
       node{
         url,
-        thumb,
+        thumb{
+          childImageSharp{
+              fluid{
+                  ...GatsbyImageSharpFluid
+              }
+          }
+        },
         type,
         text
       }
@@ -293,7 +311,13 @@ query {
       node{
         header,
         description,
-        image,
+        image{
+          childImageSharp{
+              fluid{
+                  ...GatsbyImageSharpFluid
+              }
+          }
+        },
         icon
       }
     }
@@ -303,7 +327,13 @@ query {
       node{
         header,
         description,
-        image,
+        image{
+          childImageSharp{
+              fluid{
+                  ...GatsbyImageSharpFluid
+              }
+          }
+        },
         link,
         link_text
       }

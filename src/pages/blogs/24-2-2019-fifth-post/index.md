@@ -1,9 +1,11 @@
 ---
 title: "Blog post 5"
 path: "/blogs/post5"
-description: This post is related to the gatsby
-date: '2019-02-24'
-image: 'thumb5.jpg'
+type: "blog"
+visibility: "show"
+description: "This post is related to the gatsby"
+date: "2019-02-24"
+image: "./thumb5.jpg"
 ---
 Don't build a website with last decade's tech. The future of the web is mobile,
  JavaScript and APIs—the

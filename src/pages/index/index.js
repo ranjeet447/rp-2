@@ -336,7 +336,13 @@ query {
       node{
         name,
         text,
-        image
+        image{
+          childImageSharp{
+              fluid{
+                  ...GatsbyImageSharpFluid
+              }
+          }
+        }
       }
     }
   },
@@ -344,7 +350,13 @@ query {
     edges {
       node{
         url,
-        thumb,
+        thumb{
+          childImageSharp{
+              fluid{
+                  ...GatsbyImageSharpFluid
+              }
+          }
+        },
         type,
         text
       }

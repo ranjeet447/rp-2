@@ -4,6 +4,8 @@ import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 import NavbarLight from "../../components/navbar_light"
 import {StaticQuery, graphql } from "gatsby";
+import Img from 'gatsby-image'
+import BackgroundImage from 'gatsby-background-image'
 
 const JobsPage = () => (
   <Layout>
@@ -13,28 +15,30 @@ const JobsPage = () => (
       query={Query}
       render={data => (
         <>
-          <header className="header text-white" style={{backgroundImage: `url(/jobs/images/${data.allJobsHeaderYaml.edges[0].node.image})`}} data-overlay="7">
-            <div className="container text-center">
+          <BackgroundImage fluid={data.allJobsHeaderYaml.edges[0].node.image.childImageSharp.fluid}>
+            <header className="header text-white" data-overlay="7">
 
-              <div className="row">
-                <div className="col-lg-8 mx-auto">
+              <div className="container text-center">
 
-                  <h1>{data.allJobsHeaderYaml.edges[0].node.title_static} <span className="text-primary" data-typing={`${data.allJobsHeaderYaml.edges[0].node.title_typing}`}></span></h1>
-                  <p className="lead-2">{data.allJobsHeaderYaml.edges[0].node.description}</p>
-                  <br/>
-                  <hr className="w-60px"/>
-                  <br/>
+                <div className="row">
+                  <div className="col-lg-8 mx-auto">
 
-                  <a className="btn btn-lg btn-round btn-light" href={data.allJobsHeaderYaml.edges[0].node.link}>{data.allJobsHeaderYaml.edges[0].node.link_text}</a>
+                    <h1>{data.allJobsHeaderYaml.edges[0].node.title_static} <span className="text-primary" data-typing={`${data.allJobsHeaderYaml.edges[0].node.title_typing}`}></span></h1>
+                    <p className="lead-2">{data.allJobsHeaderYaml.edges[0].node.description}</p>
+                    <br/>
+                    <hr className="w-60px"/>
+                    <br/>
 
+                    <a className="btn btn-lg btn-round btn-light" href={data.allJobsHeaderYaml.edges[0].node.link}>{data.allJobsHeaderYaml.edges[0].node.link_text}</a>
+
+                  </div>
                 </div>
-              </div>
 
-            </div>
-          </header>
+              </div>
+            </header>
+          </BackgroundImage>
           {/* <!-- Main Content --> */}
           <main className="main-content">
-
 
             {/* Benefits */}
             <section className="section">
@@ -67,7 +71,8 @@ const JobsPage = () => (
             <section className="section p-0">
               <div className="slider-arrows-flash-light slider-dots-inside slider-dots-fill-primary" data-provide="slider" data-autoplay={true} data-arrows={true} data-dots={true}>
                 {data.allSliderImagesYaml.edges.map((img,key)=>(
-                  <div key={key} className="bg-img h-600" style={{backgroundImage: `url(/jobs/images/${img.node.image})`}}></div>
+                  // <div key={key} className="bg-img h-600" style={{backgroundImage: `url(jobs/images/${img.node.image})`}}></div>
+                  <Img key={key} fluid={img.node.image.childImageSharp.fluid} className="bg-img h-600" />
                 ))}
               </div>
             </section>
@@ -144,9 +149,15 @@ query {
         title_static,
         title_typing
         description,
-        image,
         link,
-        link_text
+        link_text,
+        image{
+          childImageSharp{
+              fluid{
+                ...GatsbyImageSharpFluid
+              }
+          }
+      }
       }
     }
   },
@@ -162,7 +173,13 @@ query {
   allSliderImagesYaml {
     edges {
       node {
-        image
+        image{
+          childImageSharp{
+              fluid{
+                ...GatsbyImageSharpFluid
+              }
+          }
+        }
       }
     }
   },

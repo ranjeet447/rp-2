@@ -4,13 +4,12 @@ import {graphql} from  'gatsby'
 import Navbar from '../components/navbar'
 import SEO from "../components/seo"
 import '../assets/scss/page.scss'
-import MyImg from '../components/image';
+import Img from 'gatsby-image'
 
 
 function BlogPost(props) {
     const post = props.data.markdownRemark;
-    const { title,date,image,description } = post.frontmatter;
-    const {slug}=post.fields;
+    const { title,date,description } = post.frontmatter;
     return (
         <Layout>
             <SEO title={title} description={description} keywords={[]} />
@@ -23,9 +22,9 @@ function BlogPost(props) {
                             <h2>{title}</h2>
                             <p>{date}</p>
                         </div>
-                        {console.log(`${slug.substr(1)}images/${image}`)}
+
                         <div class="text-center my-8 m-md-8">
-                            <MyImg className="rounded-md" src={`${slug.substr(1)}images/${image}`}/>
+                            <Img className="rounded-md" fluid={post.frontmatter.image.childImageSharp.fluid}/>
                         </div>
 
                         <div class="row">
@@ -54,7 +53,13 @@ export const query = graphql`
         title
         description
         date(formatString: "MMMM D, YYYY")
-        image
+        image {
+            childImageSharp{
+                fluid{
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
        }
    }
 }`

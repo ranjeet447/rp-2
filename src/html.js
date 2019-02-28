@@ -23,7 +23,7 @@ export default class HTML extends React.Component {
           />
           {this.props.postBodyComponents}
           <link rel="stylesheet" href="/assets/css/page.min.css"/>
-          <script src="/assets/js/page.js"></script>
+          <script src="/assets/js/page.min.js"></script>
         </body>
       </html>
     )

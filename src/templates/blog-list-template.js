@@ -3,8 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import NavbarLight from "../components/navbar_light"
-// import Image from '../components'
-import MyImg from '../components/image';
+import Img from 'gatsby-image'
 
 export default class BlogList extends React.Component {
   render() {
@@ -42,7 +41,8 @@ export default class BlogList extends React.Component {
                         
                         <div className="card d-block border hover-shadow-6 mb-6">
                             <a href={`${node.frontmatter.path}`}>
-                            <MyImg className="card-img-top" src={`${node.fields.slug.substr(1)}images/${node.frontmatter.image}`} alt="Card image cap"/>
+                            {/* <MyImg className="card-img-top" src={`${node.fields.slug.substr(1)}images/${node.frontmatter.image}`} alt="Card image cap"/> */}
+                            <Img fluid={node.frontmatter.image.childImageSharp.fluid}/>
                             <div className="p-6 text-center">
                             <p className="small-5 text-lighter text-uppercase ls-2 fw-400" href="#">{node.frontmatter.date}</p>
                             <h5 className="mb-0">{node.frontmatter.title}</h5>
@@ -72,6 +72,7 @@ export default class BlogList extends React.Component {
 export const blogListQuery = graphql`
   query blogListQuery($skip: Int!, $limit: Int!) {
     allMarkdownRemark(
+      filter : {frontmatter: {type: {eq: "blog"},visibility:{eq:"show"}}},
       sort: { fields: [frontmatter___date], order: DESC }
       limit: $limit
       skip: $skip
@@ -85,7 +86,13 @@ export const blogListQuery = graphql`
             date(formatString: "MMM Do'YY")
             title
             path
-            image
+            image{
+              childImageSharp{
+                fluid{
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }

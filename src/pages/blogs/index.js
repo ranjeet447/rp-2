@@ -46,7 +46,7 @@ const BlogsPage = (props) => {
                 </div>
             ))}
 
-              
+
             </div>
 
 
@@ -78,7 +78,13 @@ export const listQuery = graphql`
             date(formatString: "MMM Do'YY")
             title
             path
-            image
+            image{
+              childImageSharp{
+                  sizes(maxWidth: 630) {
+                      ...GatsbyImageSharpSizes
+                  }
+              }
+          }
           }
         }
       }

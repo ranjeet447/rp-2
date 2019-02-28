@@ -1,9 +1,11 @@
 ---
 title: "Blog post 3333"
 path: "/blogs/post3"
-description: This post is related to the gatsbyjs
-date: '2019-09-26'
-image: 'thumb3.jpg'
+type: "blog"
+visibility: "show"
+description: "This post is related to the gatsbyjs"
+date: "2019-09-26"
+image: "./thumb3.jpg"
 ---
 Don't build a website with last decade's tech. The future of the web is mobile,
  JavaScript and APIs—the
