@@ -55,7 +55,7 @@ export default function IndexPage(){
 
               <div className="row gap-y">
                 <div className="col-md-8 mx-auto mb-7">
-                  <Img fluid={data.allFeaturesYaml.edges[0].node.image.childImageSharp.fluid} alt="..." data-aos="fade-up" data-aos-duration="2000"/>
+                  <img src={data.allFeaturesYaml.edges[0].node.image.childImageSharp.fluid.src} alt="..." data-aos="fade-up" data-aos-duration="2000"/>
                 </div>
                 <div className="w-100"></div>
                 {data.allFeaturesYaml.edges.slice(1).map((feature,key)=>(
@@ -93,8 +93,8 @@ export default function IndexPage(){
                   <a className="btn btn-lg btn-round btn-primary shadow-3" href={data.allSection3Yaml.edges[0].node.link}>{data.allSection3Yaml.edges[0].node.link_text}</a>
                 </div>
 
-                <div className="col-md-5 mx-auto text-center mt-8 mt-md-0 p-8">
-                  <Img  fluid={data.allSection3Yaml.edges[0].node.image.childImageSharp.fluid} alt="..." data-aos="fade-up"/>
+                <div className="col-md-5 mx-auto text-center mt-8 mt-md-0">
+                  <img src={data.allSection3Yaml.edges[0].node.image.childImageSharp.fluid.src} alt="..." data-aos="fade-up"/>
                 </div>
 
               </div>
