@@ -38,11 +38,11 @@ Testimonials:
 
   - name: John Jones
     quote: Design everything on the assumption that people are not heartless or stupid but marvelously capable, given the chance.
-    image: ./avatar1.jpg
+    image: ./avatar2.jpg
 
   - name: Bill Gates
     quote: Technology is just a tool. In terms of getting the kids working together and motivating them, the teacher is the most important.
-    image: ./avatar1.jpg
+    image: ./avatar3.jpg
 
 Partners:
   - image: ./partner1.png
@@ -57,33 +57,72 @@ Team:
     description:  Meet our small team that make those great products
 
 TeamMembers:
- - image: ./avatar1.jpg
+ - image: ./5.jpg
    name: Morgan Guadis
    position: Co-Founder & CEO
    facebook: /
    twitter: /
    instagram: / 
 
- - image: ./avatar1.jpg
+ - image: ./6.jpg
    name: John Senating
    position: Co-Founder & CTO
    facebook: /
    twitter: /
    instagram: / 
 
- - image: ./avatar1.jpg
+ - image: ./7.jpg
    name: Sandi Hormez
    position: Lead Developer
    facebook: /
    twitter: /
    instagram: / 
 
- - image: ./avatar1.jpg
+ - image: ./8.jpg
    name: Animor Tiruse
    position: Designer
    facebook: /
    twitter: /
    instagram: / 
+
+
+
+alterImges:
+  - type: DESIGN
+    title: Responsive Web Design
+    description: Instrument cultivated alteration any favourable expression law far nor. Both new like tore but year. An from mean on with when sing pain. Oh to as principles devonshire companions unsatiable an delightful. The ourselves suffering the sincerity. Inhabit her manners adapted age certain. Debating offended at branched striking be subjects
+    image: ./thumb15.jpg
+
+  - type: DESIGN
+    title: Responsive Web Design
+    description: Instrument cultivated alteration any favourable expression law far nor. Both new like tore but year. An from mean on with when sing pain. Oh to as principles devonshire companions unsatiable an delightful. The ourselves suffering the sincerity. Inhabit her manners adapted age certain. Debating offended at branched striking be subjects
+    image: ./thumb14.jpg
+    
+  - type: DESIGN
+    title: Responsive Web Design
+    description: Instrument cultivated alteration any favourable expression law far nor. Both new like tore but year. An from mean on with when sing pain. Oh to as principles devonshire companions unsatiable an delightful. The ourselves suffering the sincerity. Inhabit her manners adapted age certain. Debating offended at branched striking be subjects
+    image: ./thumb12.jpg
+
+founder:
+  - title: From The Founder
+    image: ./5.jpg
+  
+  - quote: Instrument cultivated alteration any favourable expression law far nor. Both new like tore but year. An from mean on with when sing pain.
+  - quote: Passage its ten led hearted removal cordial. Preference any astonished unreserved mrs. Prosperous understood middletons in conviction an uncommonly do. Supposing so be resolving breakfast am or perfectly. Is drew am hill from mr. Picture for attempt joy excited ten carried manners talking how. Suspicion neglected he resolving agreement perceived at an.
+  - quote: Written enquire painful ye to offices forming it. Then so does over sent dull on. Likewise offended humoured mrs fat trifling answered. On ye position greatest so desirous. So wound stood guest weeks no terms up ought. By so these am so rapid blush songs begin.
+
+  
+vision:
+  - title: Passionate about creating templates for startups
+
+  - title: Our Mission
+    description: Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure.
+  
+  - title: Our Vision
+    description: Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure.
+
+
+
 
 Join:
   - image: ./thumb12.jpg

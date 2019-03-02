@@ -49,7 +49,7 @@ export default function CampusPage({data}){
                 return(
                   <div className="row gap-y align-items-center py-7" key={key}>
                     <div className="col-md-6 text-center">
-                      <Img fluid={c.image.childImageSharp.fluid} alt="..."/>
+                      <img  src={c.image.childImageSharp.fluid.src} alt="..."/>
                     </div>
 
                     <div className="col-md-5 ml-auto text-center text-md-left">
@@ -69,7 +69,7 @@ export default function CampusPage({data}){
                     </div>
 
                     <div className="col-md-6 text-center order-first order-md-last">
-                      <Img fluid={c.image.childImageSharp.fluid} alt="..."/>
+                      <img  src={c.image.childImageSharp.fluid.src} alt="..."/>
                     </div>
                   </div>
                 )

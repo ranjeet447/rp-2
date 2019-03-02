@@ -1,144 +1,102 @@
 import React from "react"
 // import { Link } from "gatsby"
 import Layout from "../../components/layout"
-// import Image from "../components/image"
 import SEO from "../../components/seo"
 import Navbar from '../../components/navbar'
-import {StaticQuery, graphql } from "gatsby";
+import {graphql } from "gatsby";
 
-export default function IndexPage(){
+export default function IndexPage({data}){
+    data = data.allIndexYaml.edges[0].node
+    const header=data.header
+    const features =  data.features
+    const section3 = data.section3
+    const timeline = data.timeline[0]
+    const timeline_steps = data.timeline_steps
+    const video = data.video[0]
+    const download = data.download[0]
+    const faq = data.faq[0]
+    const questions = data.questions
+
   return(
   <Layout>
-    <SEO title="Home" keywords={[]} />
+    <SEO title="Home" description="Awsome website" keywords={[]} />
     <Navbar/>
-    <StaticQuery
-      query={Query}
+    {/* <StaticQuery
+      query={query}
       render={data =>(
-        <div>
+        <> */}
+       
+        
           <header className="header h-fullscreen" style={{backgroundImage: 'linear-gradient(135deg, #f9f7ff 0%, #fff 50%, #f6f3ff 100%)'}}>
             <div className="container">
               <div className="row align-items-center h-100">
-                {console.log(data.allHeaderYaml.edges[0].node.title)}
                 <div className="col-lg-6">
-                  {/* <h1 className="fw-600">Build your <span className="text-warning">Brand.</span><br/><span className="text-info">Sell</span> more stuff.</h1> */}
-                  <h1 className="fw-600">{data.allHeaderYaml.edges[0].node.title}</h1>
-                  {/* <p className="lead mt-5 mb-8">TheSaaS is the world’s largest marketing automation platform. It’s like a second brain that helps millions of customers find their audience, engage their customers, and build their brand.</p> */}
-                  <p className="lead mt-5 mb-8">{data.allHeaderYaml.edges[0].node.description}</p>                
+                  <h1 className="fw-600">{header[0].title}</h1>
+                  <p className="lead mt-5 mb-8">{header[0].description}</p>                
                   <p className="gap-xy">
-                    <a className="btn btn-round btn-primary mw-200" href="#">Sign up — Free</a>
-                    <a className="btn btn-round btn-outline-secondary mw-200" href="#">Learn more</a>
+                    <a className="btn btn-round btn-primary mw-200" href={header[1].link}>{header[1].link_text}</a>
+                    <a className="btn btn-round btn-outline-secondary mw-200" href={header[2].link}>{header[2].link_text}</a>
                   </p>
                 </div>
 
                 <div className="col-lg-5 ml-auto d-none d-lg-block">
-                  <img src="assets/img/vector/18.png" alt="img"/>
+                  <img src={header[0].image.childImageSharp.fluid.src} alt=""/>
                 </div>
 
               </div>
             </div>
           </header>
 
-  
-    
 
           {/* <!-- Main Content --> */}
           <main className="main-content">
 
-          
+         
           <section className="section">
             <div className="container">
               <header className="section-header">
                 <small>Feature</small>
-                <h2>Send better email</h2>
+                <h2>{features[0].header}</h2>
                 <hr/>
-                <p className="lead">Whether you need to sell your products, share some big news, or tell a story, our campaign builder makes it easy to create email campaigns that best suit your message.</p>
+                <p className="lead">{features[0].description}</p>
               </header>
 
               <div className="row gap-y">
-
                 <div className="col-md-8 mx-auto mb-7">
-                  <img src="../assets/img/preview/feature-tablet.png" alt="..." data-aos="fade-up" data-aos-duration="2000"/>
+                  <img src={features[0].image.childImageSharp.fluid.src} alt="..." data-aos="fade-up" data-aos-duration="2000"/>
                 </div>
                 <div className="w-100"></div>
-                <div className="col-md-6 col-xl-4">
-                  <div className="media">
-                    <div className="lead-6 line-height-1 text-lighter w-70px"><i className="icon-mobile"></i></div>
-                    <div className="media-body">
-                      <h5>Responsive</h5>
-                      <p>Your website works on any device: desktop, tablet or mobile.</p>
+                {features.slice(1).map((feature,key)=>(
+                  <div className="col-md-6 col-xl-4" key={key}>
+                    <div className="media">
+                      <div className="lead-6 line-height-1 text-lighter w-70px"><i className={feature.icon}></i></div>
+                      <div className="media-body">
+                        <h5>{feature.header}</h5>
+                        <p>{feature.description}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="col-md-6 col-xl-4">
-                  <div className="media">
-                    <div className="lead-6 line-height-1 text-lighter w-70px"><i className="icon-gears"></i></div>
-                    <div className="media-body">
-                      <h5>Customizable</h5>
-                      <p>You can easily read, edit, and write your own code, or change everything.</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-6 col-xl-4">
-                  <div className="media">
-                    <div className="lead-6 line-height-1 text-lighter w-70px"><i className="icon-tools"></i></div>
-                    <div className="media-body">
-                      <h5>UI Kit</h5>
-                      <p>There is a bunch of useful and necessary elements for developing your website.</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-6 col-xl-4">
-                  <div className="media">
-                    <div className="lead-6 line-height-1 text-lighter w-70px"><i className="icon-layers"></i></div>
-                    <div className="media-body">
-                      <h5>Lego Base</h5>
-                      <p>You can find our code well organized, commented and readable.</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-6 col-xl-4">
-                  <div className="media">
-                    <div className="lead-6 line-height-1 text-lighter w-70px"><i className="icon-recycle"></i></div>
-                    <div className="media-body">
-                      <h5>Clean Code</h5>
-                      <p>As you can see in the source code, we provided a clean code.</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-6 col-xl-4">
-                  <div className="media">
-                    <div className="lead-6 line-height-1 text-lighter w-70px"><i className="icon-chat"></i></div>
-                    <div className="media-body">
-                      <h5>Support</h5>
-                      <p>When you purchase this template, you'll freely receive future updates.</p>
-                    </div>
-                  </div>
-                </div>
-
+                ))}
               </div>
 
             </div>
-          </section>
+          </section> 
 
 
-          {/* <!--
-          |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-          | Automate your marketing
-          |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-          !--> */}
+          {/* | Automate your marketing */}
           <section className="section bg-gray overflow-hidden">
             <div className="container">
               <div className="row">
 
                 <div className="col-md-6 align-self-center text-center text-md-left">
-                  <h2>Automate your marketing</h2><br/>
-                  <p>Keep a personal touch while removing manual tasks from your to-do list. Pre-built marketing automation creates room to focus on strategy. Welcome, re-engage, and follow up with the people who matter to you. If you're new to marketing automation, get up to speed with one of our nifty guides: What is Marketing Automation?</p>
+                  <h2>{section3[0].header}</h2><br/>
+                  <p>{section3[0].description}</p>
                   <br/>
-                  <a className="btn btn-lg btn-round btn-primary shadow-3" href="#">Get Start Now</a>
+                  <a className="btn btn-lg btn-round btn-primary shadow-3" href={section3[0].link}>{section3[0].link_text}</a>
                 </div>
 
                 <div className="col-md-5 mx-auto text-center mt-8 mt-md-0">
-                  <img src="../assets/img/preview/phone-2.png" alt="..." data-aos="fade-up"/>
+                  <img src={section3[0].image.childImageSharp.fluid.src} alt="..." data-aos="fade-up"/>
                 </div>
 
               </div>
@@ -146,11 +104,7 @@ export default function IndexPage(){
           </section>
 
 
-          {/* <!--
-          |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-          | Test drive
-          |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-          !--> */}
+          {/* | Test drive */}
           <section className="section py-7" style={{backgroundColor: '#8ea6e6'}}>
             <div className="container">
               <div className="row gap-y align-items-center">
@@ -159,99 +113,96 @@ export default function IndexPage(){
                 </div>
 
                 <div className="col-md-3 text-center text-md-right">
-                  <a className="btn btn-lg btn-round btn-light" href="#">Take a test drive</a>
+                  <a className="btn btn-lg btn-round btn-light" href="/about">Take a test drive</a>
                 </div>
               </div>
             </div>
           </section>
 
+          {/* timeline */}
+          <section id="timeline" className="section">
+            <div className="container"> 
+            <div className="divider mb-7">{timeline.title}</div>
+              <ol className="timeline timeline-horizontal">
+                {timeline_steps.map((step,key)=>(
+                  <li className="timeline-item" key={key}>
+                    <h6><strong>{step.title}</strong></h6>
+                    <p>{step.description}</p>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </section>
 
-          {/* <!--
-          |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-          | Testimonials
-          |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-          !--> */}
+
+          {/* video */}
+           <section className="section p-0" style={{backgroundColor: '#4f8cf2'}}>
+            <div className="container-wide">
+              <div className="row no-gutters">
+
+                <div className="col-md-6 bg-img video-btn-wrapper order-md-2" style={{backgroundImage: `url(${video.image.childImageSharp.fluid.src})`, minHeight: '300px'}} data-overlay="4">
+                  <a className="btn btn-lg btn-circle btn-danger" href={video.video_url} data-provide="lightbox"><i className="fa fa-play"></i></a>
+                </div>
+                <div className="col-10 col-md-4 mx-auto py-7 py-md-9 text-white">
+                  <h5>{video.title}</h5>
+                  <p className="mb-0">{video.description}</p>
+                </div>
+
+              </div>
+            </div>
+          </section>
+
+          <section className="section overflow-hidden">
+            <div className="container">
+              <div className="row">
+
+                <div className="col-md-6 text-center">
+                  <img src={download.image.childImageSharp.fluid.src} alt="..." data-aos="slide-up"/>
+                </div>
+                <div className="col-md-6 align-self-center">
+                  <h2>Now Available</h2>
+                  <p>As absolute is by amounted repeated entirely ye returned. These ready timed enjoy might sir yet one since. Years drift never if could forty being no. On estimable dependent as suffering on my.</p>
+
+                  <div className="gap-xy-2 my-6">
+                    <a href={download.link_appstore}><img src={download.image_appstore.childImageSharp.fluid.src} alt="download on app store"/></a>
+                    <a href={download.link_playstore}><img src={download.image_playstore.childImageSharp.fluid.src} alt="download on google play"/></a>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          </section>
 
           <section className="section">
-            {console.log(data.allTestimonialsYaml.edges)}
             <div className="container">
               <header className="section-header">
-                <small>Testimonials</small>
-                <h2>What customers say about us</h2>
+                <small>FAQ</small>
+                <h2>{faq.title}</h2>
                 <hr/>
-                <p className="lead">We waited until we could do it right. Then we did! Instead of creating a carbon copy.</p>
+                <p>{faq.description}</p>
               </header>
-
-              <div className="row gap-y text-center">
-
-                {data.allTestimonialsYaml.edges.map((testimonial,key)=>(
-                  // console.log(testimonial.node.name)
-                  <div className="col-md-6" key={key}>
-                    <blockquote className="blockquote">
-                      <div><img className="avatar avatar-xl" src={`../assets/img/avatar/${testimonial.node.image}`} alt="..."/></div>
-                      <br/>
-                      <p>{testimonial.node.text}</p>
-                      <footer>{testimonial.node.name}</footer>
-                    </blockquote>
-                  </div>
-                ))}
-
-              </div>
-
-            </div>
-          </section>
-       
-          {/* <!--
-          |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-          | Recent Video Tutorials
-          |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-          !--> */}
-          <section className="section bg-gray">
-            <div className="container text-center">
-              <header className="section-header">
-                <h2>Recent Video Tutorials</h2>
-                <hr/>
-                <p className="lead">We are so excited and proud of our product. It's really easy to create a landing page for your awesome product.</p>
-              </header>
-
 
               <div className="row gap-y">
-
-                {data.allVideosYaml.edges.map((video,key)=>(
-                  <div className="col-lg-4" key={key}>
-                    <div className="video-btn-wrapper">
-                      <img className="shadow-2 rounded" src={`../assets/img/${video.node.thumb}`} alt="..."/>
-                      <a className="btn btn-glass btn-circle btn-light" href={video.node.url} data-provide="lightbox"><i className="fa fa-play"></i></a>
+                {questions.map((ques,key)=>(
+                    <div className="col-md-6 col-xl-4" key={key}>
+                      <h5>{ques.question}</h5>
+                      <p>{ques.answer}</p>
                     </div>
-                    <br/>
-                    <h6><a href="#">{video.node.text}</a></h6>
-                    <p className="small text-lighter">{video.node.type}</p>
-                  </div>
                 ))}
-                
-              </div>
-
-
-              <div className="text-center mt-7">
-                <a className="btn btn-outline-primary px-7" href="#">View all</a>
               </div>
 
             </div>
           </section>
 
 
-
-          {/* <!--
-          |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-          | CTA
-          |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-          !--> */}
+          {/* | CTA */}
           <section className="section py-7">
             <div className="container">
               <div className="row gap-y align-items-center">
                 <div className="col-md-6 text-center text-md-left">
                   <h3>Try it for free</h3>
-                  <p>Already using TheSaaS? <a href="#">Sign in</a></p>
+                  <p>Already using TheSaaS? <a href="/">Sign in</a></p>
                 </div>
 
                 <div className="col-md-auto ml-auto text-center text-md-right">
@@ -265,31 +216,8 @@ export default function IndexPage(){
               </div>
             </div>
           </section>
-
-
-          {/* <!--
-          |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-          | Partners
-          |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-          !--> */}
-          <section className="section py-6 d-none">
-            <div className="container">
-              <div className="partner partner-sm">
-                <img src="../assets/img/partner/1.png" alt="partner 1"/>
-                <img src="/assets/img/partner/2.png" alt="partner 2"/>
-                <img src="/assets/img/partner/3.png" alt="partner 3"/>
-                <img src="/assets/img/partner/4.png" alt="partner 4"/>
-                <img src="/assets/img/partner/5.png" alt="partner 5"/>
-                <img src="/assets/img/partner/6.png" alt="partner 6"/>
-              </div>
-            </div>
-          </section>
-
+          
         </main>
-      </div>
-      )}
-    />
-
 
     {/* <!-- Offcanvas - Search --> */}
     <div id="offcanvas-search" className="offcanvas text-white" data-animation="fade" style={{backgroundColor: 'rgba(255,73,84,0.9)'}}>
@@ -309,7 +237,7 @@ export default function IndexPage(){
     <div id="popup-cookie-3" className="popup text-white bg-dark col-10 py-4 border-0" data-position="bottom-center" data-animation="slide-up" data-autoshow="2000">
       <div className="row gap-y align-items-center">
         <div className="col-md">
-          This website uses cookies to ensure you get the best experience on our website. <a href="#">Lean more</a>
+          This website uses cookies to ensure you get the best experience on our website. <a href="/">Lean more</a>
         </div>
 
         <div className="col-md-auto">
@@ -317,50 +245,112 @@ export default function IndexPage(){
         </div>
       </div>
     </div>
+  
   </Layout>
   )
 }
 
-const Query = graphql`
-query {
-  allHeaderYaml {
-    edges {
-      node {
-        title,
-        description,
-      }
-    }
-  },
-  allTestimonialsYaml {
-    edges {
+
+
+export const query = graphql`
+{
+  allIndexYaml{
+    edges{
       node{
-        name,
-        text,
-        image{
-          childImageSharp{
+        header {
+          title
+          description
+          image{
+            childImageSharp{
               fluid{
-                  ...GatsbyImageSharpFluid
+                src
               }
+            }
           }
+          link
+          link_text
+        }
+        features {
+          header
+          description
+          image{
+            childImageSharp{
+              fluid{
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          icon
+        }
+        section3 {
+          header
+          description
+          image{
+            childImageSharp{
+              fluid{
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          link
+          link_text
+        }
+        timeline {
+          title
+        }
+        timeline_steps {
+          title
+          description
+        }
+        video {
+          title
+          description
+          image{
+            childImageSharp{
+              fluid{
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          video_url
+        }
+        download {
+          title
+          description
+          image {
+            childImageSharp{
+              fluid{
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          link_playstore
+          image_playstore{
+            childImageSharp{
+              fluid{
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          link_appstore
+          image_appstore{
+            childImageSharp{
+              fluid{
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+        faq {
+          title
+          description
+        }
+        questions {
+          question
+          answer
         }
       }
     }
-  },
-  allVideosYaml {
-    edges {
-      node{
-        url,
-        thumb{
-          childImageSharp{
-              fluid{
-                  ...GatsbyImageSharpFluid
-              }
-          }
-        },
-        type,
-        text
-      }
-    }
   }
-}`
-
+}
+`

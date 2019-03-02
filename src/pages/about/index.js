@@ -4,9 +4,126 @@ import {graphql } from "gatsby";
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 import Navbar from '../../components/navbar'
-
-import Img from 'gatsby-image'
 import BackgroundImage from 'gatsby-background-image'
+import Img from 'gatsby-image'
+
+
+
+
+export const query = graphql`
+  query {
+    allAboutYaml{
+      edges{
+        node{
+          Header{
+            title
+            description
+          }
+          ScrollImages{
+            image{
+              childImageSharp{
+                fluid{
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+          Mission{
+            title
+            description
+          }
+          MissionPoints{
+            p
+          }
+          Numbers{
+            head
+            number
+          }
+          Testimonials{
+            title
+            description
+            name
+            quote
+            image{
+              childImageSharp{
+                fluid{
+                  src
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+          Partners{
+            image{
+              childImageSharp{
+                fluid{
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+          Team{
+            title
+            description
+          }
+          TeamMembers{
+            name
+            image{
+              childImageSharp{
+                fluid{
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            position
+            facebook
+            twitter
+            instagram
+          }
+          Join{
+            image{
+              childImageSharp{
+                fluid{
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            title
+            link
+            link_text
+          }
+          alterImges {
+            type
+            title
+            description
+            image{
+              childImageSharp{
+                fluid{
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+          founder {
+            title
+            image{
+              childImageSharp{
+                fluid{
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            quote
+          }
+          vision {
+            title
+            description
+          }
+        }
+      }
+    }
+  }  
+`
 
 
 
@@ -22,6 +139,9 @@ export default function AboutPage({data}){
   const Team = data.allAboutYaml.edges[0].node.Team
   const TeamMembers = data.allAboutYaml.edges[0].node.TeamMembers
   const Join = data.allAboutYaml.edges[0].node.Join
+  const altImg = data.allAboutYaml.edges[0].node.alterImges
+  const founder = data.allAboutYaml.edges[0].node.founder
+  const vision = data.allAboutYaml.edges[0].node.vision
 
   return(
     <Layout>
@@ -116,7 +236,7 @@ export default function AboutPage({data}){
                 <div className="col-lg-4" key={key}>
                   <blockquote className="blockquote">
                     {/* <div><img className="avatar avatar-xl" src="/assets/img/avatar/1.jpg" alt="..."/></div> */}
-                    <div><Img className="avatar avatar-xl m-auto" fluid={testimonial.image.childImageSharp.fluid}/></div>
+                    <div><img className="avatar avatar-xl m-auto" src={testimonial.image.childImageSharp.fluid.src}/></div>
                     <div className="fs-15 mt-6">{testimonial.quote}</div>
                     <footer><em>{testimonial.name}</em></footer>
                   </blockquote>
@@ -176,20 +296,40 @@ export default function AboutPage({data}){
         
       <section class="section">
         <div class="container">
-          <div class="row gap-y align-items-center">
 
-            <div class="col-md-6 text-center text-md-right">
-              <p class="small-2 text-uppercase text-lightest fw-500 ls-1">Design</p>
-              <h3 class="fw-500">Responsive Web Design</h3>
-              <br/>
-              <p>Instrument cultivated alteration any favourable expression law far nor. Both new like tore but year. An from mean on with when sing pain. Oh to as principles devonshire companions unsatiable an delightful. The ourselves suffering the sincerity. Inhabit her manners adapted age certain. Debating offended at branched striking be subjects.</p>
-            </div>
-
-            <div class="col-md-6">
-              <img class="rounded-md ml-md-4" src="../assets/img/thumb/15.jpg" alt="..."/>
-            </div>
-
-          </div>
+          {altImg.map((m,key)=>{
+            if(key%2===0){
+              return(
+                <div class="row gap-y align-items-center">
+                  <div class="col-md-6 order-md-2">
+                    <img class="rounded-md ml-md-4"  src={m.image.childImageSharp.fluid.src} alt="..."/>
+                  </div>
+                  <div class="col-md-6 text-center text-md-right">
+                    <p class="small-2 text-uppercase text-lightest fw-500 ls-1">Design</p>
+                    <h3 class="fw-500">Responsive Web Design</h3>
+                    <br/>
+                    <p>Instrument cultivated alteration any favourable expression law far nor. Both new like tore but year. An from mean on with when sing pain. Oh to as principles devonshire companions unsatiable an delightful. The ourselves suffering the sincerity. Inhabit her manners adapted age certain. Debating offended at branched striking be subjects.</p>
+                  </div>
+                  
+                </div>
+              )
+            }else{
+              return(
+                <div class="row gap-y align-items-center">
+                  <div class="col-md-6">
+                  <img class="rounded-md ml-md-4"  src={m.image.childImageSharp.fluid.src} alt="..."/>
+                  </div>
+                  <div class="col-md-6 text-center text-md-left">
+                    <p class="small-2 text-uppercase text-lightest fw-500 ls-1">Design</p>
+                    <h3 class="fw-500">Responsive Web Design</h3>
+                    <br/>
+                    <p>Instrument cultivated alteration any favourable expression law far nor. Both new like tore but year. An from mean on with when sing pain. Oh to as principles devonshire companions unsatiable an delightful. The ourselves suffering the sincerity. Inhabit her manners adapted age certain. Debating offended at branched striking be subjects.</p>
+                  </div>
+                  
+                </div>
+              )
+            }
+          })}
         </div>
       </section>
 
@@ -197,14 +337,15 @@ export default function AboutPage({data}){
         <div class="container-wide">
           <div class="row no-gutters">
 
-            <div class="col-md-4 bg-img" style={{backgroundImage: 'url(../assets/img/thumb/9.jpg)', minHeight: '300px;'}}></div>
+            <div class="col-md-4 bg-img" style={{backgroundImage: `url(${founder[0].image.childImageSharp.fluid.src})`, minHeight: '300px'}}></div>
 
             <div class="col-md-8 p-6 p-md-8">
-              <h4>From The Founder</h4>
-              <p class="lead">Instrument cultivated alteration any favourable expression law far nor. Both new like tore but year. An from mean on with when sing pain.</p>
-              <p>Passage its ten led hearted removal cordial. Preference any astonished unreserved mrs. Prosperous understood middletons in conviction an uncommonly do. Supposing so be resolving breakfast am or perfectly. Is drew am hill from mr. Picture for attempt joy excited ten carried manners talking how. Suspicion neglected he resolving agreement perceived at an.</p>
-              <p>Written enquire painful ye to offices forming it. Then so does over sent dull on. Likewise offended humoured mrs fat trifling answered. On ye position greatest so desirous. So wound stood guest weeks no terms up ought. By so these am so rapid blush songs begin.</p>
-            </div>
+              <h4>{founder[0].title}</h4>
+              <p class="lead">{founder[1].quote}</p>
+              {founder.slice(2).map((f,key)=>(
+                <p key={key}>{f.quote}</p>
+              ))}
+              </div>
 
           </div>
         </div>
@@ -215,19 +356,15 @@ export default function AboutPage({data}){
           <div class="row gap-y">
 
             <div class="col-md-3 mr-md-auto">
-              <p class="lead-4 text-right">Passionate about creating templates for startups</p>
+              <p class="lead-4 text-right">{vision[0].title}</p>
             </div>
 
-            <div class="col-md-4">
-              <h6>Our Mission</h6>
-              <p>Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure.</p>
-            </div>
-
-            <div class="col-md-4">
-              <h6>Our Vision</h6>
-              <p>Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure.</p>
-            </div>
-
+            {vision.slice(1).map((v,key)=>(
+              <div class="col-md-4" key={key}>
+                <h6>{v.title}</h6>
+                <p>{v.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -254,92 +391,4 @@ export default function AboutPage({data}){
   
 }
 
-export const query = graphql`
-  query {
-    allAboutYaml{
-      edges{
-        node{
-          Header{
-            title
-            description
-          }
-          ScrollImages{
-            image{
-              childImageSharp{
-                fluid{
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-          Mission{
-            title
-            description
-          }
-          MissionPoints{
-            p
-          }
-          Numbers{
-            head
-            number
-          }
-          Testimonials{
-            title
-            description
-            name
-            quote
-            image{
-              childImageSharp{
-                fluid{
-                  src
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-          Partners{
-            image{
-              childImageSharp{
-                fluid{
-                  src
-                }
-              }
-            }
-          }
-          Team{
-            title
-            description
-          }
-          TeamMembers{
-            name
-            image{
-              childImageSharp{
-                fluid{
-                  src
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            position
-            facebook
-            twitter
-            instagram
-          }
-          Join{
-            image{
-              childImageSharp{
-                fluid{
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            title
-            link
-            link_text
-          }
-        }
-      }
-    }
-  }  
-`
 

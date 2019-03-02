@@ -50,7 +50,7 @@ export default function FaqPage({data}) {
                             <hr className="hr-dash"/>
                           </div>
                         )
-                      }
+                      }else return null
                     })}
                     <br className="m-8"/>
                   </div>

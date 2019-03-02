@@ -4,8 +4,61 @@ import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 import NavbarLight from "../../components/navbar_light"
 import {StaticQuery, graphql } from "gatsby";
-import Img from 'gatsby-image'
 import BackgroundImage from 'gatsby-background-image'
+
+
+const Query = graphql`
+query {
+  allJobsHeaderYaml {
+    edges {
+      node {
+        title_static,
+        title_typing
+        description,
+        link,
+        link_text,
+        image{
+          childImageSharp{
+              fluid{
+                ...GatsbyImageSharpFluid
+              }
+          }
+      }
+      }
+    }
+  },
+  allBenefitsYaml {
+    edges {
+      node {
+        title,
+        description,
+        icon
+      }
+    }
+  },
+  allSliderImagesYaml {
+    edges {
+      node {
+        image{
+          childImageSharp{
+              fluid{
+                ...GatsbyImageSharpFluid
+              }
+          }
+        }
+      }
+    }
+  },
+  allJoblistYaml {
+    edges {
+      node {
+        position,
+        description,
+        location
+      }
+    }
+  },
+}`
 
 const JobsPage = () => (
   <Layout>
@@ -71,8 +124,7 @@ const JobsPage = () => (
             <section className="section p-0">
               <div className="slider-arrows-flash-light slider-dots-inside slider-dots-fill-primary" data-provide="slider" data-autoplay={true} data-arrows={true} data-dots={true}>
                 {data.allSliderImagesYaml.edges.map((img,key)=>(
-                  // <div key={key} className="bg-img h-600" style={{backgroundImage: `url(jobs/images/${img.node.image})`}}></div>
-                  <Img key={key} fluid={img.node.image.childImageSharp.fluid} className="bg-img h-600" />
+                  <BackgroundImage className="bg-img h-600" fluid={img.node.image.childImageSharp.fluid} key={key}></BackgroundImage>
                 ))}
               </div>
             </section>
@@ -141,55 +193,3 @@ const JobsPage = () => (
 
 export default JobsPage
 
-const Query = graphql`
-query {
-  allJobsHeaderYaml {
-    edges {
-      node {
-        title_static,
-        title_typing
-        description,
-        link,
-        link_text,
-        image{
-          childImageSharp{
-              fluid{
-                ...GatsbyImageSharpFluid
-              }
-          }
-      }
-      }
-    }
-  },
-  allBenefitsYaml {
-    edges {
-      node {
-        title,
-        description,
-        icon
-      }
-    }
-  },
-  allSliderImagesYaml {
-    edges {
-      node {
-        image{
-          childImageSharp{
-              fluid{
-                ...GatsbyImageSharpFluid
-              }
-          }
-        }
-      }
-    }
-  },
-  allJoblistYaml {
-    edges {
-      node {
-        position,
-        description,
-        location
-      }
-    }
-  },
-}`

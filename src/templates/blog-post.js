@@ -4,7 +4,6 @@ import {graphql} from  'gatsby'
 import Navbar from '../components/navbar'
 import SEO from "../components/seo"
 import '../assets/scss/page.scss'
-import Img from 'gatsby-image'
 
 
 function BlogPost(props) {
@@ -24,7 +23,7 @@ function BlogPost(props) {
                         </div>
 
                         <div class="text-center my-8">
-                            <Img className="rounded-md" fluid={post.frontmatter.image.childImageSharp.fluid}/>
+                            <img className="rounded-md" src={post.frontmatter.image.childImageSharp.fluid.src} alt=""/>
                         </div>
 
                         <div class="row">

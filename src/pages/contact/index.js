@@ -4,18 +4,20 @@ import Layout from "../../components/layout"
 // import Image from "../components/image"
 import SEO from "../../components/seo"
 import Navbar from '../../components/navbar'
+import {graphql } from "gatsby"
 
 
 export default function ContactPage({data}) {
 
   data= data.allContactYaml.edges[0].node
+  const map= data.map
 
   return(
     <Layout>
       <SEO title="Contact" keywords={[`gatsby`, `application`, `react`]} />
       <Navbar/>
       <header className="header p-0">
-        <div className="h-500" data-provide="map" data-lat="44.540" data-lng="-78.556" data-marker-lat="44.540" data-marker-lng="-78.556" data-info="&lt;strong&gt;Our office&lt;/strong&gt;&lt;br&gt;3652 Seventh Avenue, Los Angeles, CA" data-style="light" data-remove-controls="true"></div>
+        <div className="h-500" data-provide="map" data-lat={map.lat} data-lng={map.lang} data-marker-lat={map.lat} data-marker-lng={map.lang} data-info={`&lt;strong&gt;Our office&lt;/strong&gt;&lt;br&gt;${map.add}`} data-style="light" data-remove-controls="true"></div>
       </header>
 
       {/* <!-- Main Content --> */}
@@ -108,6 +110,11 @@ export const query = graphql`
         twitter
         facebook
         instagram
+      }
+      map{
+        lat
+        lang
+        add
       }
     }
   }

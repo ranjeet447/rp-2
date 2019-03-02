@@ -32,7 +32,7 @@ const Navbar = () => (
             <a className="btn btn-sm btn-success" href="/">Sign up</a>
             <a className="btn btn-sm btn-link text-dark ml-lg-5 mr-2" href="/">Login</a>
 
-            <a className="text-lighter" href="#" data-toggle="offcanvas" data-target="#offcanvas-search"><i className="ti-search"></i></a>
+            {/* <a className="text-lighter" href="#" data-toggle="offcanvas" data-target="#offcanvas-search"><i className="ti-search"></i></a> */}
           </div>
         </section>
 
