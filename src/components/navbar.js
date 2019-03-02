@@ -7,12 +7,12 @@ import logo_light from '../images/logo-light.png'
 
 const Navbar = () => (
     
-    <nav className="navbar navbar-expand-lg navbar-dark navbar-stick-dark">
+    <nav className="navbar navbar-expand-lg navbar-dark navbar-stick-dark" data-navbar="sticky">
       <div className="container">
 
         <div className="navbar-left mr-4">
           <button className="navbar-toggler" type="button">&#9776;</button>
-          <a className="navbar-brand" href="/">
+          <a className="navbar-brand mt-5" href="/">
             <img className="logo-dark" src={logo_dark} alt="logo"/>
             <img className="logo-light" src={logo_light} alt="logo"/>
           </a>

@@ -16,7 +16,7 @@ const JobsPage = () => (
       render={data => (
         <>
           <BackgroundImage fluid={data.allJobsHeaderYaml.edges[0].node.image.childImageSharp.fluid}>
-            <header className="header text-white" data-overlay="7">
+            <header className="header text-white" style={{backgroundImage: `url(${data.allJobsHeaderYaml.edges[0].node.image.childImageSharp.fluid.src})`}} data-overlay="7">
 
               <div className="container text-center">
 

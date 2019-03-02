@@ -8,9 +8,9 @@ const NavbarLight = () => (
     <nav className="navbar navbar-expand-lg navbar-light navbar-stick-dark" data-navbar="sticky">
       <div className="container">
 
-        <div className="navbar-left">
+        <div className="navbar-right">
           <button className="navbar-toggler" type="button">&#9776;</button>
-          <a className="navbar-brand" href="/">
+          <a className="navbar-brand mt-5" href="/">
           <img className="logo-dark" src={logo_dark} alt="logo"/>
             <img className="logo-light" src={logo_light} alt="logo"/>
           </a>

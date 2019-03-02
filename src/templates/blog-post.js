@@ -23,7 +23,7 @@ function BlogPost(props) {
                             <p>{date}</p>
                         </div>
 
-                        <div class="text-center my-8 m-md-8">
+                        <div class="text-center my-8">
                             <Img className="rounded-md" fluid={post.frontmatter.image.childImageSharp.fluid}/>
                         </div>
 

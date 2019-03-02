@@ -1,0 +1,21 @@
+address:
+  - line1: 2651 Main Street, Suit 124
+    line2: Seattle, WA, 98101
+
+phone: 
+  - ph: +1 (321) 654 9870
+  - ph: +1 (987) 123 6548
+
+emails:
+  - email: hello@thetheme.io
+  - email: hello@thetheme.io
+
+social_media:
+  - twitter: /contact
+    facebook: /contact
+    instagram: /contact
+
+map:
+  - lat: 1 
+    lang: 0 
+    add: asdf

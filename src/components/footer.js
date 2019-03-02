@@ -18,27 +18,26 @@ const Footer = () => (
         <div className="col-6 col-md-3 col-xl-2">
           <h6 className="mb-4 mt-1"><strong>Company</strong></h6>
           <div className="nav flex-column">
-            <a className="nav-link" href="#">About</a>
-            <a className="nav-link" href="#">Careers</a>
-            <a className="nav-link" href="#">Contact</a>
+            <a className="nav-link" href="/about">About</a>
+            <a className="nav-link" href="/jobs">Careers</a>
+            <a className="nav-link" href="/connect">Connect</a>
           </div>
         </div>
 
         <div className="col-6 col-md-3 col-xl-2">
           <h6 className="mb-4 mt-1"><strong>Product</strong></h6>
           <div className="nav flex-column">
-            <a className="nav-link" href="#">Features</a>
-            <a className="nav-link" href="#">Pricing</a>
-            <a className="nav-link" href="#">Security</a>
+            <a className="nav-link" href="/blog">Blog</a>
+            <a className="nav-link" href="/campus">campus</a>
           </div>
         </div>
 
         <div className="col-6 col-md-6 col-xl-2">
           <h6 className="mb-4 mt-1"><strong>Support</strong></h6>
           <div className="nav flex-column">
-            <a className="nav-link" href="#">Help Center</a>
-            <a className="nav-link" href="#">API</a>
-            <a className="nav-link" href="#">FAQ</a>
+            <a className="nav-link" href="/contact">Contact</a>
+            <a className="nav-link" href="/terms">Terms &amp; coditions</a>
+            <a className="nav-link" href="/faq">FAQ</a>
           </div>
         </div>
 

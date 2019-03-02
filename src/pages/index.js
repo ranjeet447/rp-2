@@ -8,31 +8,43 @@ import {StaticQuery, graphql } from "gatsby";
 import Img from 'gatsby-image'
 
 
-export default function IndexPage(){
+export default function IndexPage({data}){
+  console.log(data.allIndexYaml.edges[0].node)
+    data = data.allIndexYaml.edges[0].node
+    const header=data.header
+    const features =  data.features
+    const section3 = data.section3
+    const timeline = data.timeline[0]
+    const timeline_steps = data.timeline_steps
+    const video = data.video[0]
+    const download = data.download[0]
+    const faq = data.faq[0]
+    const questions = data.questions
+
   return(
   <Layout>
     <SEO title="Home" description="Awsome website" keywords={[]} />
     <Navbar/>
-    <StaticQuery
-      query={Query}
+    {/* <StaticQuery
+      query={query}
       render={data =>(
-        <>
+        <> */}
+       
+        
           <header className="header h-fullscreen" style={{backgroundImage: 'linear-gradient(135deg, #f9f7ff 0%, #fff 50%, #f6f3ff 100%)'}}>
             <div className="container">
               <div className="row align-items-center h-100">
                 <div className="col-lg-6">
-                  {/* <h1 className="fw-600">Build your <span className="text-warning">Brand.</span><br/><span className="text-info">Sell</span> more stuff.</h1> */}
-                  <h1 className="fw-600">{data.allHeaderYaml.edges[0].node.title}</h1>
-                  {/* <p className="lead mt-5 mb-8">TheSaaS is the world’s largest marketing automation platform. It’s like a second brain that helps millions of customers find their audience, engage their customers, and build their brand.</p> */}
-                  <p className="lead mt-5 mb-8">{data.allHeaderYaml.edges[0].node.description}</p>                
+                  <h1 className="fw-600">{header[0].title}</h1>
+                  <p className="lead mt-5 mb-8">{header[0].description}</p>                
                   <p className="gap-xy">
-                    <a className="btn btn-round btn-primary mw-200" href={data.allHeaderYaml.edges[1].node.link}>{data.allHeaderYaml.edges[1].node.link_text}</a>
-                    <a className="btn btn-round btn-outline-secondary mw-200" href={data.allHeaderYaml.edges[2].node.link}>{data.allHeaderYaml.edges[2].node.link_text}</a>
+                    <a className="btn btn-round btn-primary mw-200" href={header[1].link}>{header[1].link_text}</a>
+                    <a className="btn btn-round btn-outline-secondary mw-200" href={header[2].link}>{header[2].link_text}</a>
                   </p>
                 </div>
 
                 <div className="col-lg-5 ml-auto d-none d-lg-block">
-                  <Img fluid={data.allHeaderYaml.edges[0].node.image.childImageSharp.fluid}/>
+                  <img src={header[0].image.childImageSharp.fluid.src}/>
                 </div>
 
               </div>
@@ -43,58 +55,52 @@ export default function IndexPage(){
           {/* <!-- Main Content --> */}
           <main className="main-content">
 
-          
+         
           <section className="section">
             <div className="container">
               <header className="section-header">
                 <small>Feature</small>
-                <h2>{data.allFeaturesYaml.edges[0].node.header}</h2>
+                <h2>{features[0].header}</h2>
                 <hr/>
-                <p className="lead">{data.allFeaturesYaml.edges[0].node.description}</p>
+                <p className="lead">{features[0].description}</p>
               </header>
 
               <div className="row gap-y">
                 <div className="col-md-8 mx-auto mb-7">
-                  <img src={data.allFeaturesYaml.edges[0].node.image.childImageSharp.fluid.src} alt="..." data-aos="fade-up" data-aos-duration="2000"/>
+                  <img src={features[0].image.childImageSharp.fluid.src} alt="..." data-aos="fade-up" data-aos-duration="2000"/>
                 </div>
                 <div className="w-100"></div>
-                {data.allFeaturesYaml.edges.slice(1).map((feature,key)=>(
+                {features.slice(1).map((feature,key)=>(
                   <div className="col-md-6 col-xl-4" key={key}>
                     <div className="media">
-                      <div className="lead-6 line-height-1 text-lighter w-70px"><i className={feature.node.icon}></i></div>
+                      <div className="lead-6 line-height-1 text-lighter w-70px"><i className={feature.icon}></i></div>
                       <div className="media-body">
-                        <h5>{feature.node.header}</h5>
-                        <p>{feature.node.description}</p>
+                        <h5>{feature.header}</h5>
+                        <p>{feature.description}</p>
                       </div>
                     </div>
                   </div>
                 ))}
-                
-
               </div>
 
             </div>
-          </section>
+          </section> 
 
 
-          {/* <!--
-          |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-          | Automate your marketing
-          |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-          !--> */}
+          {/* | Automate your marketing */}
           <section className="section bg-gray overflow-hidden">
             <div className="container">
               <div className="row">
 
                 <div className="col-md-6 align-self-center text-center text-md-left">
-                  <h2>{data.allSection3Yaml.edges[0].node.header}</h2><br/>
-                  <p>{data.allSection3Yaml.edges[0].node.description}</p>
+                  <h2>{section3[0].header}</h2><br/>
+                  <p>{section3[0].description}</p>
                   <br/>
-                  <a className="btn btn-lg btn-round btn-primary shadow-3" href={data.allSection3Yaml.edges[0].node.link}>{data.allSection3Yaml.edges[0].node.link_text}</a>
+                  <a className="btn btn-lg btn-round btn-primary shadow-3" href={section3[0].link}>{section3[0].link_text}</a>
                 </div>
 
                 <div className="col-md-5 mx-auto text-center mt-8 mt-md-0">
-                  <img src={data.allSection3Yaml.edges[0].node.image.childImageSharp.fluid.src} alt="..." data-aos="fade-up"/>
+                  <img src={section3[0].image.childImageSharp.fluid.src} alt="..." data-aos="fade-up"/>
                 </div>
 
               </div>
@@ -102,11 +108,7 @@ export default function IndexPage(){
           </section>
 
 
-          {/* <!--
-          |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-          | Test drive
-          |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-          !--> */}
+          {/* | Test drive */}
           <section className="section py-7" style={{backgroundColor: '#8ea6e6'}}>
             <div className="container">
               <div className="row gap-y align-items-center">
@@ -121,85 +123,84 @@ export default function IndexPage(){
             </div>
           </section>
 
+          {/* timeline */}
+          <section id="timeline" className="section">
+            <div className="container"> 
+            <div className="divider mb-7">{timeline.title}</div>
+              <ol className="timeline timeline-horizontal">
+                {timeline_steps.map((step,key)=>(
+                  <li className="timeline-item" key={key}>
+                    <h6><strong>{step.title}</strong></h6>
+                    <p>{step.description}</p>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </section>
 
-          {/* <!--
-          |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-          | Testimonials
-          |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-          !--> */}
+
+          {/* video */}
+           <section className="section p-0" style={{backgroundColor: '#4f8cf2'}}>
+            <div className="container-wide">
+              <div className="row no-gutters">
+
+                <div className="col-md-6 bg-img video-btn-wrapper order-md-2" style={{backgroundImage: `url(${video.image.childImageSharp.fluid.src})`, minHeight: '300px'}} data-overlay="4">
+                  <a className="btn btn-lg btn-circle btn-danger" href={video.video_url} data-provide="lightbox"><i className="fa fa-play"></i></a>
+                </div>
+                <div className="col-10 col-md-4 mx-auto py-7 py-md-9 text-white">
+                  <h5>{video.title}</h5>
+                  <p className="mb-0">{video.description}</p>
+                </div>
+
+              </div>
+            </div>
+          </section>
+
+          <section className="section overflow-hidden">
+            <div className="container">
+              <div className="row">
+
+                <div className="col-md-6 text-center">
+                  <img src={download.image.childImageSharp.fluid.src} alt="..." data-aos="slide-up"/>
+                </div>
+                <div className="col-md-6 align-self-center">
+                  <h2>Now Available</h2>
+                  <p>As absolute is by amounted repeated entirely ye returned. These ready timed enjoy might sir yet one since. Years drift never if could forty being no. On estimable dependent as suffering on my.</p>
+
+                  <div className="gap-xy-2 my-6">
+                    <a href={download.link_appstore}><img src={download.image_appstore.childImageSharp.fluid.src} alt="download on app store"/></a>
+                    <a href={download.link_playstore}><img src={download.image_playstore.childImageSharp.fluid.src} alt="download on google play"/></a>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          </section>
 
           <section className="section">
             <div className="container">
               <header className="section-header">
-                <small>Testimonials</small>
-                <h2>What customers say about us</h2>
+                <small>FAQ</small>
+                <h2>{faq.title}</h2>
                 <hr/>
-                <p className="lead">We waited until we could do it right. Then we did! Instead of creating a carbon copy.</p>
+                <p>{faq.description}</p>
               </header>
-
-              <div className="row gap-y text-center">
-
-                {data.allTestimonialsYaml.edges.map((testimonial,key)=>(
-                  <div className="col-md-6" key={key}>
-                    <blockquote className="blockquote">
-                      <Img className="avatar avatar-xl m-auto" fluid={testimonial.node.image.childImageSharp.fluid} />
-                      <br/>
-                      <p>{testimonial.node.text}</p>
-                      <footer>{testimonial.node.name}</footer>
-                    </blockquote>
-                  </div>
-                ))}
-
-              </div>
-
-            </div>
-          </section>
-       
-          {/* <!--
-          |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-          | Recent Video Tutorials
-          |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-          !--> */}
-          <section className="section bg-gray">
-            <div className="container text-center">
-              <header className="section-header">
-                <h2>Recent Video Tutorials</h2>
-                <hr/>
-                <p className="lead">We are so excited and proud of our product. It's really easy to create a landing page for your awesome product.</p>
-              </header>
-
 
               <div className="row gap-y">
-
-                {data.allVideosYaml.edges.map((video,key)=>(
-                  <div className="col-lg-4" key={key}>
-                    <div className="video-btn-wrapper">
-                      <Img className="shadow-2 rounded" fluid={video.node.thumb.childImageSharp.fluid} alt="..."/>
-                      <a className="btn btn-glass btn-circle btn-light" href={video.node.url} data-provide="lightbox"><i className="fa fa-play"></i></a>
+                {questions.map((ques,key)=>(
+                    <div className="col-md-6 col-xl-4" key={key}>
+                      <h5>{ques.question}</h5>
+                      <p>{ques.answer}</p>
                     </div>
-                    <br/>
-                    <h6><a href="#">{video.node.text}</a></h6>
-                    <p className="small text-lighter">{video.node.type}</p>
-                  </div>
                 ))}
-                
-              </div>
-
-
-              <div className="text-center mt-7">
-                <a className="btn btn-outline-primary px-7" href="#">View all</a>
               </div>
 
             </div>
           </section>
 
 
-
-          {/* <!--
-          |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-          | CTA
-          |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-          !--> */}
+          {/* | CTA */}
           <section className="section py-7">
             <div className="container">
               <div className="row gap-y align-items-center">
@@ -221,10 +222,6 @@ export default function IndexPage(){
           </section>
           
         </main>
-      </>
-      )}
-    />
-
 
     {/* <!-- Offcanvas - Search --> */}
     <div id="offcanvas-search" className="offcanvas text-white" data-animation="fade" style={{backgroundColor: 'rgba(255,73,84,0.9)'}}>
@@ -252,92 +249,112 @@ export default function IndexPage(){
         </div>
       </div>
     </div>
+  
   </Layout>
   )
 }
 
-const Query = graphql`
-query {
-  allHeaderYaml {
-    edges {
-      node {
-        title,
-        description,
-        image{
-          childImageSharp{
-              fluid{
-                  ...GatsbyImageSharpFluid
-              }
-          }
-        },
-        link,
-        link_text
-      }
-    }
-  },
-  allTestimonialsYaml {
-    edges {
+
+
+export const query = graphql`
+{
+  allIndexYaml{
+    edges{
       node{
-        name,
-        text,
-        image{
-          childImageSharp{
+        header {
+          title
+          description
+          image{
+            childImageSharp{
               fluid{
-                  ...GatsbyImageSharpFluid
+                src
               }
+            }
           }
+          link
+          link_text
+        }
+        features {
+          header
+          description
+          image{
+            childImageSharp{
+              fluid{
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          icon
+        }
+        section3 {
+          header
+          description
+          image{
+            childImageSharp{
+              fluid{
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          link
+          link_text
+        }
+        timeline {
+          title
+        }
+        timeline_steps {
+          title
+          description
+        }
+        video {
+          title
+          description
+          image{
+            childImageSharp{
+              fluid{
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          video_url
+        }
+        download {
+          title
+          description
+          image {
+            childImageSharp{
+              fluid{
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          link_playstore
+          image_playstore{
+            childImageSharp{
+              fluid{
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          link_appstore
+          image_appstore{
+            childImageSharp{
+              fluid{
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+        faq {
+          title
+          description
+        }
+        questions {
+          question
+          answer
         }
       }
     }
-  },
-  allVideosYaml {
-    edges {
-      node{
-        url,
-        thumb{
-          childImageSharp{
-              fluid{
-                  ...GatsbyImageSharpFluid
-              }
-          }
-        },
-        type,
-        text
-      }
-    }
-  },
-  allFeaturesYaml{
-    edges{
-      node{
-        header,
-        description,
-        image{
-          childImageSharp{
-              fluid{
-                  ...GatsbyImageSharpFluid
-              }
-          }
-        },
-        icon
-      }
-    }
-  },
-  allSection3Yaml{
-    edges{
-      node{
-        header,
-        description,
-        image{
-          childImageSharp{
-              fluid{
-                  ...GatsbyImageSharpFluid
-              }
-          }
-        },
-        link,
-        link_text
-      }
-    }
   }
-}`
-
+}
+`

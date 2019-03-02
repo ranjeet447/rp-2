@@ -1,0 +1,29 @@
+header:
+  - title: Better Communication; More Connection
+    description: The ease & simplicity of TheSaaS, available across devices
+    image: ./thumb18.jpg
+  
+  - link: learn-more
+    link_text: Learn More
+
+  - link: get-started
+    link_text: Get Started
+
+blogs:
+  - type: Tips
+    title: A better compose
+    description: Downstairs in you in discipline experience there's both have shall over called he peacefully, ticket a from be the in violin, empty where statement is me. Because behind in is now tend named bit for other concept.
+    image: ./thumb16.jpg
+    link: /blogs/post1
+
+  - type: Collaborate
+    title: View attachments instantly
+    description: Downstairs in you in discipline experience there's both have shall over called he peacefully, ticket a from be the in violin, empty where statement is me. Because behind in is now tend named bit for other concept.
+    image: ./thumb17.jpg
+    link: /blogs/post1
+
+cta:
+  - title: Get Custom Email
+    description: Use the TheSaaS you love - for business. Get custom email @yourcompany.com including calendar, docs, video meetings, and more with access from your phone or tablet.
+    link: /connect
+    link_text: Get Started

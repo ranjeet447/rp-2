@@ -1,0 +1,96 @@
+#index page
+header:
+  - title: Build your Brand. Sell more stuff.
+    description: TheSaaS is the world’s largest marketing automation platform. It’s like a second brain that helps millions of customers find their audience, engage their customers, and build their brand.
+    image: vector18.png
+
+  - link: /
+    link_text: SIGN UP — FREE
+    
+  - link: /
+    link_text: LEARN MORE
+
+
+features:
+  - header: Send better email
+    description: Whether you need to sell your products, share some big news, or tell a story, our campaign builder makes it easy to create email campaigns that best suit your message.
+    image: ./feature-tablet.png
+
+  - header: Responsive
+    description: Your website works on any device desktop, tablet or mobile.
+    icon: icon-mobile
+
+  - header: Customizable
+    description: You can easily read, edit, and write your own code, or change everything.
+    icon: icon-gears
+
+  - header: UI Kit
+    description: There is a bunch of useful and necessary elements for developing your website.
+    icon: icon-tools
+  
+  - header: Lego Base
+    description: You can find our code well organized, commented and readable.
+    icon: icon-layers
+      
+  - header: Clean Code
+    description: As you can see in the source code, we provided a clean code.
+    icon: icon-recycle
+
+  - header: Support
+    description: When you purchase this template, you'll freely receive future updates.
+    icon: icon-chat
+
+
+section3:
+  - header: Automate your marketing
+    description: Keep a personal touch while removing manual tasks from your to-do list. Pre-built marketing automation creates room to focus on strategy. Welcome, re-engage, and follow up with the people who matter to you. If you're new to marketing automation, get up to speed with one of our nifty guides - What is Marketing Automation?
+    image: ./phone-2.png
+    link: /
+    link_text: GET STARTED NOW
+    
+timeline:
+  - title: timeline
+
+timeline_steps:
+  - title: Step 1
+    description: Think the or organization same proposal to affected heard reclined in be it reassuring are attained opinion, by he even again.
+  - title: Step 3
+    description: Think the or organization same proposal to affected heard reclined in be it reassuring are attained opinion, by he even again.
+  - title: Step 3
+    description: Think the or organization same proposal to affected heard reclined in be it reassuring are attained opinion, by he even again.
+  - title: Step 4
+    description: Think the or organization same proposal to affected heard reclined in be it reassuring are attained opinion, by he even again.
+  
+
+video:
+  - title: Give a Fresh Design to Your SaaS
+    description: Fresh fellow even the whole is work outcome them. They original on mountains, drew the support time. The of to graduate. Into to is the to she at return understand every in there transmitting you've he the was and in finger.
+    image: ./thumb16.jpg
+    video_url: https://www.youtube.com/watch?v=ah4pcPbRi2M
+
+download:
+  - title: Now Available
+    description: As absolute is by amounted repeated entirely ye returned. These ready timed enjoy might sir yet one since. Years drift never if could forty being no. On estimable dependent as suffering on my.
+    image: ./phone-2.png
+    link_playstore: /
+    image_playstore: ./badge-google.jpg
+    link_appstore: /
+    image_appstore: ./badge-apple.jpg
+
+faq:
+  - title: Frequently Asked Questions
+    description: Got a question? We've got answers. If you have some other questions, contact us using email.
+
+questions:
+  - question: Is this a secure site for purchases?
+    answer: Absolutely! We work with top payment companies which guarantees your safety and security. All billing information is stored on our payment processing partner which has the most stringent level of certification available in the payments industry.
+  - question: Is this a secure site for purchases?
+    answer: Absolutely! We work with top payment companies which guarantees your safety and security. All billing information is stored on our payment processing partner which has the most stringent level of certification available in the payments industry.
+  - question: Is this a secure site for purchases?
+    answer: Absolutely! We work with top payment companies which guarantees your safety and security. All billing information is stored on our payment processing partner which has the most stringent level of certification available in the payments industry.
+  - question: Can I try your service for free?
+    answer: Of course! We’re happy to offer a free plan to anyone who wants to try our service.
+  - question: Can I try your service for free?
+    answer: Of course! We’re happy to offer a free plan to anyone who wants to try our service.
+  - question: Can I try your service for free?
+    answer: Of course! We’re happy to offer a free plan to anyone who wants to try our service.
