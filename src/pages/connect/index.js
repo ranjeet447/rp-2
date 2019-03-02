@@ -9,7 +9,6 @@ import { graphql } from "gatsby";
 export default function ConnectPage({data}) {
 
   data= data.allConnectYaml.edges[0].node
-  console.log(data)
   const header= data.header
   const blogs = data.blogs
   const cta = data.cta[0]
@@ -127,7 +126,7 @@ export default function ConnectPage({data}) {
           {blogs.map((blog,key)=>{
             if(key%2===0){
               return(
-                <div className="row no-gutters">
+                <div className="row no-gutters" key={key}>
                   <div className="col-md-6 bg-img mh-300" style={{backgroundImage: `url(${blog.image.childImageSharp.fluid.src})`}}></div>
                   <div className="col-10 col-md-4 mx-auto py-8 text-center text-md-left">
                     <p className="small-2 text-light">{blog.type}</p>
@@ -140,7 +139,8 @@ export default function ConnectPage({data}) {
               )
             }else{
               return(
-                <div className="row no-gutters">
+                <div className="row no-gutters" key={key}>
+                  <div className="col-md-6 bg-img mh-300 order-md-2" style={{backgroundImage: `url(${blog.image.childImageSharp.fluid.src})`}}></div>
                   <div className="col-10 col-md-4 mx-auto py-8 text-center text-md-left">
                     <p className="small-2 text-light">{blog.type}</p>
                     <h4>{blog.title}</h4>
@@ -148,7 +148,6 @@ export default function ConnectPage({data}) {
                     <br/>
                     <a className="btn btn-round btn-primary" href={blog.link}>Read More</a>
                   </div>
-                  <div className="col-md-6 bg-img mh-300" style={{backgroundImage: `url(${blog.image.childImageSharp.fluid.src})`}}></div>
                 </div>
               )
             }

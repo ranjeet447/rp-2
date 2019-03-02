@@ -9,7 +9,6 @@ import Navbar from '../../components/navbar'
 export default function ContactPage({data}) {
 
   data= data.allContactYaml.edges[0].node
-  console.log(data)
 
   return(
     <Layout>
