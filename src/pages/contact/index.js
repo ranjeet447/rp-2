@@ -10,7 +10,8 @@ import {graphql } from "gatsby"
 export default function ContactPage({data}) {
 
   data= data.allContactYaml.edges[0].node
-  const map= data.map
+  const map= data.map[0]
+  console.log(map)
 
   return(
     <Layout>
