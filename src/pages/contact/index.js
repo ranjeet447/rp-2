@@ -11,14 +11,13 @@ export default function ContactPage({data}) {
 
   data= data.allContactYaml.edges[0].node
   const map= data.map[0]
-  console.log(map)
 
   return(
     <Layout>
       <SEO title="Contact" keywords={[`gatsby`, `application`, `react`]} />
       <Navbar/>
       <header className="header p-0">
-        <div className="h-500" data-provide="map" data-lat={map.lat} data-lng={map.lang} data-marker-lat={map.lat} data-marker-lng={map.lang} data-info={`&lt;strong&gt;Our office&lt;/strong&gt;&lt;br&gt;${map.add}`} data-style="light" data-remove-controls="true"></div>
+        <div className="h-500" data-provide="map" data-lat={map.lat} data-lng={map.lang} data-marker-lat={map.lat} data-marker-lng={map.lang} data-info={"<h6>Our office</h6><p>" +map.add+"</p>"} data-style="light" data-remove-controls="true"></div>
       </header>
 
       {/* <!-- Main Content --> */}
