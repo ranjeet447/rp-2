@@ -201,8 +201,8 @@ __webpack_require__(9);
 +function($, window){
 
   var page = {
-    name:       'TheSaaS',
-    version:    '2.1.4',
+    // name:       'TheSaaS',
+    // version:    '2.1.4',
     vendors:    [],
 
     // Cache popular elements
@@ -213,12 +213,12 @@ __webpack_require__(9);
   }
 
   page.defaults = {
-    googleApiKey:       null,
+    googleApiKey:       'AIzaSyAU5dhBKo17ffBieSLtxypzbwI-hTYVUZE',
     googleAnalyticsKey: null,
     reCaptchaSiteKey:   null,
     reCaptchaLanguage:  null,
-    disableAOSonMobile: true,
-    smoothScroll:       false,
+    disableAOSonMobile: false,
+    smoothScroll:       true,
   }
 
   /**
@@ -286,7 +286,7 @@ __webpack_require__(9);
  * Once the DOM is loaded, start the magic.
  */
 $(function () {
-  //page.init();
+  page.init();
 });
 
 
@@ -35408,7 +35408,7 @@ $(function() {
     |
     */
 
-    googleApiKey: 'AIzaSyDRBLFOTTh2NFM93HpUA4ZrA99yKnCAsto',
+    googleApiKey: 'AIzaSyAU5dhBKo17ffBieSLtxypzbwI-hTYVUZE',
 
     /*
     |--------------------------------------------------------------------------
@@ -35449,7 +35449,7 @@ $(function() {
     |
     */
 
-    disableAOSonMobile: true,
+    disableAOSonMobile: false,
 
     /*
     |--------------------------------------------------------------------------

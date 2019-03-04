@@ -5,12 +5,12 @@ import Navbar from '../components/navbar'
 import SEO from "../components/seo"
 
 
-function BlogPost(props) {
+function City(props) {
     const post = props.data.markdownRemark;
-    const { title,date,description } = post.frontmatter;
+    const { title,date} = post.frontmatter;
     return (
         <Layout>
-            <SEO title={title} description={description} keywords={[]} />
+            <SEO title={title}keywords={[]} />
             <Navbar/>
             <main className="main-content">
                 <div className="section">
@@ -22,7 +22,7 @@ function BlogPost(props) {
                         </div>
 
                         <div className="text-center my-8">
-                            <img className="rounded-md" src={post.frontmatter.image.childImageSharp.fluid.src} alt=""/>
+                            {/* <img className="rounded-md" src={post.frontmatter.image.childImageSharp.fluid.src} alt=""/> */}
                         </div>
 
                         <div className="row">
@@ -37,10 +37,10 @@ function BlogPost(props) {
         </Layout>
     )
 }
-export default BlogPost
+export default City
 
 export const query = graphql`
- query PostQuery($path: String!) {
+ query CityQuery($path: String!) {
      markdownRemark(frontmatter: { path: { eq: $path } }) {
        html
        fields {
@@ -49,15 +49,27 @@ export const query = graphql`
        frontmatter {
         path
         title
-        description
-        date(formatString: "MMMM D, YYYY")
-        image {
-            childImageSharp{
-                fluid{
-                    ...GatsbyImageSharpFluid
-                }
-            }
-        }
+        
        }
    }
 }`
+
+
+// cities: allMarkdownRemark(
+//     filter : {frontmatter: {visibility:{eq:"show"},type:{eq:"city"}}},
+//   ) {
+//     edges {
+//       node {
+//         fields{
+//             slug
+//         }
+//         id
+//         html
+//         frontmatter {
+//             title
+//             path
+//         }
+//       }
+//     }
+//   }
+

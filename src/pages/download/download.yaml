@@ -1,0 +1,53 @@
+header:
+  - title: Process Blocks
+    description: A set of blocks to create steps, how it works, or even the history of your startup with.
+    image: ./thumb17.jpg
+
+
+process:
+  - title: How Does It Work?
+    description: Explore the best SaaS template in the market in a short 1-minute video.
+    image: ./thumb6.jpg
+    video: https://www.youtube.com/watch?v=ah4pcPbRi2M
+
+process_steps:
+  - number: 1
+    title: Write your requirements
+    description: Think the or organization same proposal to affected heard reclined in be it reassuring.
+    
+  - number: 2
+    title: Sign the contract
+    description: Think the or organization same proposal to affected heard reclined in be it reassuring.
+    
+  - number: 3
+    title: We start developing
+    description: Think the or organization same proposal to affected heard reclined in be it reassuring.
+    
+
+download:
+  - title: Choose your pricing plan
+
+downloads:
+  - title: SINGLE TEMPLATE
+    description: Single template, lifetime license
+    link: ./invalid_keypress.mp3
+    link_text: download 
+    currency: ₹
+    price: 88
+
+  - title: ONE YEAR MEMBERSHIP
+    description: Get access to all templates
+    link: ./invalid_keypress.mp3
+    link_text: download
+    currency: ₹
+    price: 99
+
+
+  - title: LIFETIME ACCESS
+    description: Pay once, have fun forever
+    link: ./invalid_keypress.mp3
+    link_text: download
+    currency: ₹
+    price: 100
+
+   

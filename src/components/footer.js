@@ -6,7 +6,7 @@ import logo_dark from '../images/logo-dark.png'
 
 
 const Footer = () => (
-  <footer className="footer bg-gray py-9">
+  <footer className="footer bg-gray py-7">
     <div className="container">
       <div className="row gap-y">
 

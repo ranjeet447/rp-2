@@ -36,9 +36,26 @@ exports.createPages = ({ actions, graphql }) => {
         resolve(graphql(`
     {
       allMarkdownRemark(
-        filter : {frontmatter: {visibility:{eq:"show"}}},
+        filter : {frontmatter: {visibility:{eq:"show"},type:{eq:"blog"}}},
         sort: { order: DESC, fields: [frontmatter___date] }
         limit: 100
+      ) {
+        edges {
+          node {
+            fields{
+                slug
+            }
+            id
+            html
+            frontmatter {
+                title
+                path
+            }
+          }
+        }
+      }
+      cities:allMarkdownRemark(
+        filter : {frontmatter: {visibility:{eq:"show"}}},
       ) {
         edges {
           node {
@@ -64,6 +81,10 @@ exports.createPages = ({ actions, graphql }) => {
                 const posts = result.data.allMarkdownRemark.edges
                 const postsPerPage = 2
                 const numPages = Math.ceil(posts.length / postsPerPage)
+
+                const cities = result.data.cities.edges
+
+                console.log(cities)
                 Array.from({ length: numPages }).forEach((_, i) => {
                     createPage({
                       path: i === 0 ? `/blog` : `/blog/${i + 1}`,
@@ -76,6 +97,16 @@ exports.createPages = ({ actions, graphql }) => {
                       },
                     })
                 })
+
+                cities.forEach(({node})=>{
+                    createPage({
+                        path: node.frontmatter.path,
+                        component: path.resolve("./src/templates/city1.js"),
+                        context: {
+                            slug: node.fields.slug,
+                        }, 
+                    })
+                })
                 posts.forEach(({ node }) => {
                     createPage({
                         path: node.frontmatter.path,
@@ -84,6 +115,7 @@ exports.createPages = ({ actions, graphql }) => {
                             slug: node.fields.slug,
                         }, // additional data can be passed via context
                     })
+
                 })
                 return
             })

@@ -28,28 +28,22 @@ const BlogsPage = (props) => {
         <main className="main-content">
           <section className="section bg-gray">
           <div className="container">
-
             <div className="row gap-y">
-        
-            {blogList.edges.map(({node},key)=>(
-                <div className="col-md-6 col-lg-4" key={key}>
-                  
-                  <div className="card d-block border hover-shadow-6 mb-6">
-                    <a href={`${node.frontmatter.path}`}>
-                    <img className="card-img-top" src={`/blogs/images/${node.frontmatter.image}`} alt="Card image cap"/>
-                    <div className="p-6 text-center">
-                      <p className="small-5 text-lighter text-uppercase ls-2 fw-400">{node.frontmatter.date}</p>
-                      <h5 className="mb-0">{node.frontmatter.title}</h5>
+              {blogList.edges.map(({node},key)=>(
+                  <div className="col-md-6 col-lg-4" key={key}>
+                    
+                    <div className="card d-block border hover-shadow-6 mb-6">
+                      <a href={`${node.frontmatter.path}`}>
+                      <img className="card-img-top" src={`/blogs/images/${node.frontmatter.image}`} alt="Card image cap"/>
+                      <div className="p-6 text-center">
+                        <p className="small-5 text-lighter text-uppercase ls-2 fw-400">{node.frontmatter.date}</p>
+                        <h5 className="mb-0">{node.frontmatter.title}</h5>
+                      </div>
+                      </a>
                     </div>
-                    </a>
                   </div>
-                </div>
-            ))}
-
-
+              ))}
             </div>
-
-
             <nav className="flexbox mt-6">
               <a className="btn btn-white disabled"><i className="ti-arrow-left fs-9 mr-2"></i> Newer</a>
               <a className="btn btn-white disabled">Older <i className="ti-arrow-right fs-9 ml-2"></i></a>
@@ -84,7 +78,7 @@ export const listQuery = graphql`
                       ...GatsbyImageSharpSizes
                   }
               }
-          }
+            }
           }
         }
       }

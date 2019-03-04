@@ -3,7 +3,7 @@ import React from "react"
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 import NavbarLight from "../../components/navbar_light"
-import {StaticQuery, graphql } from "gatsby";
+import {StaticQuery, graphql } from "gatsby"
 import BackgroundImage from 'gatsby-background-image'
 
 
@@ -81,9 +81,7 @@ const JobsPage = () => (
                     <br/>
                     <hr className="w-60px"/>
                     <br/>
-
                     <a className="btn btn-lg btn-round btn-light" href={data.allJobsHeaderYaml.edges[0].node.link}>{data.allJobsHeaderYaml.edges[0].node.link_text}</a>
-
                   </div>
                 </div>
 
@@ -118,8 +116,6 @@ const JobsPage = () => (
               </div>
             </section>
 
-
-
             {/*slider */}
             <section className="section p-0">
               <div className="slider-arrows-flash-light slider-dots-inside slider-dots-fill-primary" data-provide="slider" data-autoplay={true} data-arrows={true} data-dots={true}>
@@ -128,9 +124,6 @@ const JobsPage = () => (
                 ))}
               </div>
             </section>
-
-
-
 
             {/* Open positions */}
             <section className="section" id="section-open-positions">
@@ -168,7 +161,6 @@ const JobsPage = () => (
               </div>
             </section>
 
-
           </main>
           {/* <!-- Offcanvas - Search --> */}
           <div id="offcanvas-search" className="offcanvas text-white" data-animation="fade" style={{backgroundColor: 'rgba(255,73,84,0.9)'}}>
@@ -183,11 +175,9 @@ const JobsPage = () => (
               </div>
             </div>
           </div>
-      
         </>    
       )}
     />
-    
   </Layout>
 )
 

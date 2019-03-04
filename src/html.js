@@ -12,6 +12,8 @@ export default class HTML extends React.Component {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
+          <link rel="stylesheet" href="/assets/css/page.min.css"/>
+          <link rel="stylesheet" href="/assets/css/style.min.css"/>
           {this.props.headComponents}
         </head>
         <body {...this.props.bodyAttributes}>
@@ -22,10 +24,9 @@ export default class HTML extends React.Component {
             dangerouslySetInnerHTML={{ __html: this.props.body }}
           />
           {this.props.postBodyComponents}
-          <link rel="stylesheet" href="/assets/css/page.min.css"/>
-          <link rel="stylesheet" href="/assets/css/style.min.css"/>
-          <script src="/assets/js/page.js"></script>
-          <script src="/assets/js/script.js"></script>
+          
+          {/* <script src="/assets/js/page.js"></script> */}
+          {/* <script src="/assets/js/script.js"></script> */}
         </body>
       </html>
     )

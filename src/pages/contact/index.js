@@ -76,20 +76,13 @@ export default function ContactPage({data}) {
                 </div>
               </div>
             </form>
-
           </div>
-
         </section>
-
-
-
       </main>
       
     </Layout>
   )
 }
-
-
 
 export const query = graphql`
 {

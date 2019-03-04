@@ -10,7 +10,7 @@ const NavbarLight = () => (
 
         <div className="navbar-right">
           <button className="navbar-toggler" type="button">&#9776;</button>
-          <a className="navbar-brand mt-5" href="/">
+          <a className="navbar-brand" href="/">
           <img className="logo-dark" src={logo_dark} alt="logo"/>
             <img className="logo-light" src={logo_light} alt="logo"/>
           </a>
@@ -19,12 +19,14 @@ const NavbarLight = () => (
         <section className="navbar-mobile">
         <span className="navbar-divider d-mobile-none"></span>
           <nav className="nav nav-navbar nav-text-normal mr-auto">
-          <a className="nav-link" href="/jobs">Jobs</a>
+            <a className="nav-link" href="/">Home</a>
+            <a className="nav-link" href="/jobs">Jobs</a>
             <a className="nav-link" href="/blog">Blog</a>
             <a className="nav-link" href="/campus">campus</a>
             <a className="nav-link" href="/terms">Terms</a>
             <a className="nav-link" href="/faq">Faq</a>
             <a className="nav-link" href="/about">About</a>
+            <a className="nav-link" href="/download">Download</a>
           </nav>
 
           <div className="d-flex align-items-center">

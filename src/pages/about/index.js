@@ -8,8 +8,6 @@ import BackgroundImage from 'gatsby-background-image'
 import Img from 'gatsby-image'
 
 
-
-
 export const query = graphql`
   query {
     allAboutYaml{
@@ -122,13 +120,27 @@ export const query = graphql`
         }
       }
     }
+    allTeamYaml{
+      edges{
+        node {
+          name
+          image {
+            childImageSharp{
+              fluid{
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          position
+          facebook
+          twitter
+          instagram
+        }
+      }
+    }
   }  
 `
-
-
-
 export default function AboutPage({data}){
-
   const Header = data.allAboutYaml.edges[0].node.Header
   const ScrollImages = data.allAboutYaml.edges[0].node.ScrollImages
   const Mission =data.allAboutYaml.edges[0].node.Mission
@@ -137,11 +149,13 @@ export default function AboutPage({data}){
   const Testimonials = data.allAboutYaml.edges[0].node.Testimonials
   const Partners = data.allAboutYaml.edges[0].node.Partners
   const Team = data.allAboutYaml.edges[0].node.Team
-  const TeamMembers = data.allAboutYaml.edges[0].node.TeamMembers
+  // const TeamMembers = data.allAboutYaml.edges[0].node.TeamMembers
   const Join = data.allAboutYaml.edges[0].node.Join
   const altImg = data.allAboutYaml.edges[0].node.alterImges
   const founder = data.allAboutYaml.edges[0].node.founder
   const vision = data.allAboutYaml.edges[0].node.vision
+
+  const TeamMembers = data.allTeamYaml.edges
 
   return(
     <Layout>
@@ -165,7 +179,6 @@ export default function AboutPage({data}){
       {/* <!-- Main Content --> */}
       <main className="main-content">
 
-
         {/* | Slider */}
         <section className="section p-0">
           <div data-provide="slider" data-autoplay="true" data-slides-to-show="2" data-css-ease="linear" data-speed="12000" data-autoplay-speed="0" data-pause-on-hover="false">
@@ -175,11 +188,8 @@ export default function AboutPage({data}){
               </div>
             ))}
             
-
-            
           </div>
         </section>
-
 
         {/* | Our Mission */}
         <section id="section-mission" className="section">
@@ -220,7 +230,6 @@ export default function AboutPage({data}){
           </div>
         </section>
 
-
         {/* | Testimonials */}
         <section className="section">
           <div className="container">
@@ -236,7 +245,7 @@ export default function AboutPage({data}){
                 <div className="col-lg-4" key={key}>
                   <blockquote className="blockquote">
                     {/* <div><img className="avatar avatar-xl" src="/assets/img/avatar/1.jpg" alt="..."/></div> */}
-                    <div><img className="avatar avatar-xl m-auto" src={testimonial.image.childImageSharp.fluid.src}/></div>
+                    <div><img className="avatar avatar-xl m-auto" src={testimonial.image.childImageSharp.fluid.src} alt=""/></div>
                     <div className="fs-15 mt-6">{testimonial.quote}</div>
                     <footer><em>{testimonial.name}</em></footer>
                   </blockquote>
@@ -247,24 +256,22 @@ export default function AboutPage({data}){
           </div>
         </section>
 
-
         {/* | Partnerss */}
         <section className="section bg-gray py-6">
           <div className="container">
 
             <div className="partner partner-sm">
               {Partners.map((partner,key)=>(
-                <img src={partner.image.childImageSharp.fluid.src} key={key}/>
+                <img src={partner.image.childImageSharp.fluid.src} key={key} alt=""/>
               ))}
             </div>
 
           </div>
         </section>
 
-
         {/* | Team */}
         <section className="section">
-          <div className="container">
+          <div className="container-wide">
             <header className="section-header">
               <small>People</small>
               <h2>{Team[0].title}</h2>
@@ -272,19 +279,30 @@ export default function AboutPage({data}){
               <p className="lead">{Team[0].description}</p>
             </header>
 
-
-            <div className="row gap-y">
+            <div className="gap-y m-0 p-0" style={{display:'flex',flexWrap:'wrap'}}>
               {TeamMembers.map((member,key)=>(
-                <div className="col-md-6 col-lg-3 team-1" key={key}>
-                  <a href="#">
-                    <img src={member.image.childImageSharp.fluid.src}/>
-                  </a>
-                  <h6>{member.name}</h6>
-                  <small>{member.position}</small>
-                  <div className="social social-gray">
-                    <a className="social-twitter" href={member.twitter}><i className="fa fa-twitter"></i></a>
-                    <a className="social-facebook" href={member.facebook}><i className="fa fa-facebook"></i></a>
-                    <a className="social-instagram" href={member.instagram}><i className="fa fa-instagram"></i></a>
+                // <div className="col-md-6 col-lg-3 team-1" key={key}>
+                //   <a href="#">
+                //     <img src={member.image.childImageSharp.fluid.src}/>
+                //   </a>
+                //   <h6>{member.name}</h6>
+                //   <small>{member.position}</small>
+                  // <div className="social social-gray">
+                  //   <a className="social-twitter" href={member.twitter}><i className="fa fa-twitter"></i></a>
+                  //   <a className="social-facebook" href={member.facebook}><i className="fa fa-facebook"></i></a>
+                  //   <a className="social-instagram" href={member.instagram}><i className="fa fa-instagram"></i></a>
+                  // </div>
+                // </div>
+                <div className="card" key={key}>
+                  <div className="card text-white bg-img justify-content-end h-150 w-150" style={{backgroundImage: `url(${member.node.image.childImageSharp.fluid.src})`}} data-scrim-bottom="9">
+                  <div className="card-body flex-grow-0 pb-0">
+                    <h6 className="card-title text-center mb-0">{member.node.name}</h6>
+                        <div className="social social-gray">
+                          <a className="social-twitter" href={member.node.twitter}><i className="fa fa-twitter"></i></a>
+                          <a className="social-facebook" href={member.node.facebook}><i className="fa fa-facebook"></i></a>
+                          <a className="social-instagram" href={member.node.instagram}><i className="fa fa-instagram"></i></a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -293,20 +311,19 @@ export default function AboutPage({data}){
           </div>
         </section>
 
-        
-      <section class="section">
-        <div class="container">
+      <section className="section">
+        <div className="container">
 
           {altImg.map((m,key)=>{
             if(key%2===0){
               return(
-                <div class="row gap-y align-items-center">
-                  <div class="col-md-6 order-md-2">
-                    <img class="rounded-md ml-md-4"  src={m.image.childImageSharp.fluid.src} alt="..."/>
+                <div className="row gap-y align-items-center" key={key}>
+                  <div className="col-md-6 order-md-2">
+                    <img className="rounded-md ml-md-4"  src={m.image.childImageSharp.fluid.src} alt="..."/>
                   </div>
-                  <div class="col-md-6 text-center text-md-right">
-                    <p class="small-2 text-uppercase text-lightest fw-500 ls-1">Design</p>
-                    <h3 class="fw-500">Responsive Web Design</h3>
+                  <div className="col-md-6 text-center text-md-right">
+                    <p className="small-2 text-uppercase text-lightest fw-500 ls-1">Design</p>
+                    <h3 className="fw-500">Responsive Web Design</h3>
                     <br/>
                     <p>Instrument cultivated alteration any favourable expression law far nor. Both new like tore but year. An from mean on with when sing pain. Oh to as principles devonshire companions unsatiable an delightful. The ourselves suffering the sincerity. Inhabit her manners adapted age certain. Debating offended at branched striking be subjects.</p>
                   </div>
@@ -315,13 +332,13 @@ export default function AboutPage({data}){
               )
             }else{
               return(
-                <div class="row gap-y align-items-center">
-                  <div class="col-md-6">
-                  <img class="rounded-md ml-md-4"  src={m.image.childImageSharp.fluid.src} alt="..."/>
+                <div className="row gap-y align-items-center" key={key}>
+                  <div className="col-md-6">
+                  <img className="rounded-md ml-md-4"  src={m.image.childImageSharp.fluid.src} alt="..."/>
                   </div>
-                  <div class="col-md-6 text-center text-md-left">
-                    <p class="small-2 text-uppercase text-lightest fw-500 ls-1">Design</p>
-                    <h3 class="fw-500">Responsive Web Design</h3>
+                  <div className="col-md-6 text-center text-md-left">
+                    <p className="small-2 text-uppercase text-lightest fw-500 ls-1">Design</p>
+                    <h3 className="fw-500">Responsive Web Design</h3>
                     <br/>
                     <p>Instrument cultivated alteration any favourable expression law far nor. Both new like tore but year. An from mean on with when sing pain. Oh to as principles devonshire companions unsatiable an delightful. The ourselves suffering the sincerity. Inhabit her manners adapted age certain. Debating offended at branched striking be subjects.</p>
                   </div>
@@ -333,15 +350,15 @@ export default function AboutPage({data}){
         </div>
       </section>
 
-      <section class="section text-white p-0" style={{backgroundColor: '#33323a'}}>
-        <div class="container-wide">
-          <div class="row no-gutters">
+      <section className="section text-white p-0" style={{backgroundColor: '#33323a'}}>
+        <div className="container-wide">
+          <div className="row no-gutters">
 
-            <div class="col-md-4 bg-img" style={{backgroundImage: `url(${founder[0].image.childImageSharp.fluid.src})`, minHeight: '300px'}}></div>
+            <div className="col-md-4 bg-img" style={{backgroundImage: `url(${founder[0].image.childImageSharp.fluid.src})`, minHeight: '300px'}}></div>
 
-            <div class="col-md-8 p-6 p-md-8">
+            <div className="col-md-8 p-6 p-md-8">
               <h4>{founder[0].title}</h4>
-              <p class="lead">{founder[1].quote}</p>
+              <p className="lead">{founder[1].quote}</p>
               {founder.slice(2).map((f,key)=>(
                 <p key={key}>{f.quote}</p>
               ))}
@@ -351,16 +368,16 @@ export default function AboutPage({data}){
         </div>
       </section>
 
-      <section class="section">
-        <div class="container">
-          <div class="row gap-y">
+      <section className="section">
+        <div className="container">
+          <div className="row gap-y">
 
-            <div class="col-md-3 mr-md-auto">
-              <p class="lead-4 text-right">{vision[0].title}</p>
+            <div className="col-md-3 mr-md-auto">
+              <p className="lead-4 text-right">{vision[0].title}</p>
             </div>
 
             {vision.slice(1).map((v,key)=>(
-              <div class="col-md-4" key={key}>
+              <div className="col-md-4" key={key}>
                 <h6>{v.title}</h6>
                 <p>{v.description}</p>
               </div>
@@ -368,7 +385,6 @@ export default function AboutPage({data}){
           </div>
         </div>
       </section>
-
 
         {/* | CTA */}
         <BackgroundImage fluid={Join[0].image.childImageSharp.fluid}>
@@ -380,15 +396,10 @@ export default function AboutPage({data}){
         </section>
         </BackgroundImage>
 
-
-
       </main>
-      
-      
       
     </Layout>
   )
-  
 }
 
 

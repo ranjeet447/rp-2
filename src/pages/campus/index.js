@@ -4,8 +4,8 @@ import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 import Navbar from '../../components/navbar_light'
 import BackgroundImage from 'gatsby-background-image'
-import { graphql } from "gatsby";
-import Img from 'gatsby-image'
+import { graphql } from "gatsby"
+// import Img from 'gatsby-image'
 
 
 export default function CampusPage({data}){
@@ -36,13 +36,9 @@ export default function CampusPage({data}){
       {/* <!-- Main Content --> */}
       <main className="main-content">
 
-
-
-
         {/* | How it work steps */}
         <section className="section">
           <div className="container">
-
 
             {campus.map((c,key)=>{
               if(c.number%2!==0){
@@ -78,7 +74,6 @@ export default function CampusPage({data}){
           </div>
         </section>
 
-
         {/* | Signup */}
         <section className="section py-10 bg-img-bottom" style={{backgroundImage: `url(${signUpForm.image.childImageSharp.fluid.src})`}} data-overlay="5">
           <div className="container">
@@ -103,14 +98,9 @@ export default function CampusPage({data}){
                 <button className="btn btn-lg btn-block btn-success h-100">{signUpForm.button}</button>
               </div>
             </form>
-
           </div>
-
         </section>
-
-
       </main>
-      
     </Layout>
   )
 }
