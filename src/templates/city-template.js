@@ -53,7 +53,6 @@ function City(props) {
 								<hr/>
 								<p className="lead">They original on mountains, drew the support time. The of to graduate. Into to is the to she.</p>
 							</header>
-
 							<form className="form-row input-border" action="../assets/php/sendmail.php" method="POST" data-form="mailer">
 								<div className="col-12">
 										<div className="alert alert-success d-on-success">We received your message and will contact you back soon.</div>
@@ -79,15 +78,12 @@ function City(props) {
 							</form>
 						</div>
 					</section>
-
-
 							</main>
          
     </Layout>
   )
 }
 export default City
-
 export const query = graphql`
 query($id:ID!){
 	gcmsdata{

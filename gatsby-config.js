@@ -1,8 +1,10 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title:`RedCarpet`,
+    description: `default Description`,
+    siteUrl:``,
+    defaultImage: ``,
+    author: `@RedcarpetUp`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -84,6 +86,7 @@ module.exports = {
           url: "https://api-euwest.graphcms.com/v1/cjswavs8bb4mr01fjdtcp52i1/master",
       },
   },
-    // 'gatsby-plugin-offline',
+  // `gatsby-plugin-sitemap`,
+  'gatsby-plugin-offline',
   ],
 }

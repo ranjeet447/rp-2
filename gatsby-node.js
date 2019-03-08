@@ -76,6 +76,10 @@ exports.createPages = ({ actions, graphql }) => {
           id
           meta
         }
+        demoes(where: {status: PUBLISHED}){
+          id
+          meta
+        }
       }
     }`)
     .then(result => {
@@ -90,6 +94,7 @@ exports.createPages = ({ actions, graphql }) => {
 
                 // const cities = result.data.cities.edges
                 const cities = result.data.gcmsdata.cities
+                const requests = result.data.gcmsdata.demoes
 
 
                 Array.from({ length: numPages }).forEach((_, i) => {
@@ -111,6 +116,16 @@ exports.createPages = ({ actions, graphql }) => {
                         component: path.resolve("./src/templates/city-template.js"),
                         context:{
                             id:city.id,
+                        }
+                    })
+                })
+
+                requests.forEach((request)=>{
+                    createPage({
+                        path: request.meta.path,
+                        component: path.resolve("./src/templates/request-template.js"),
+                        context:{
+                            id:request.id,
                         }
                     })
                 })

@@ -29,6 +29,7 @@ const Footer = () => (
           <div className="nav flex-column">
             <a className="nav-link" href="/blog">Blog</a>
             <a className="nav-link" href="/campus">campus</a>
+            <a className="nav-link" href="/request">Request</a>
           </div>
         </div>
 
