@@ -120,22 +120,33 @@ export const query = graphql`
         }
       }
     }
-    allTeamYaml{
-      edges{
-        node {
-          name
-          image {
-            childImageSharp{
-              fluid{
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-          position
-          facebook
-          twitter
-          instagram
+    #allTeamYaml{
+    #  edges{
+    #    node {
+    #      name
+    #      image {
+    #       childImageSharp{
+    #          fluid{
+    #            ...GatsbyImageSharpFluid
+    #          }
+    #        }
+    #      }
+    #      position
+    #      facebook
+    #      twitter
+    #      instagram
+    #    }
+    #  }
+    #}
+    gcmsdata{
+      teamMembers{
+        image{
+          url
         }
+        name
+        facebook
+        twitter
+        instagram
       }
     }
   }  
@@ -155,7 +166,8 @@ export default function AboutPage({data}){
   const founder = data.allAboutYaml.edges[0].node.founder
   const vision = data.allAboutYaml.edges[0].node.vision
 
-  const TeamMembers = data.allTeamYaml.edges
+  // const TeamMembers = data.allTeamYaml.edges
+  const teamMembers = data.gcmsdata.teamMembers
 
   return(
     <Layout>
@@ -280,7 +292,7 @@ export default function AboutPage({data}){
             </header>
 
             <div className="gap-y m-0 p-0" style={{display:'flex',flexWrap:'wrap'}}>
-              {TeamMembers.map((member,key)=>(
+              {teamMembers.map((member,key)=>(
                 // <div className="col-md-6 col-lg-3 team-1" key={key}>
                 //   <a href="#">
                 //     <img src={member.image.childImageSharp.fluid.src}/>
@@ -293,14 +305,14 @@ export default function AboutPage({data}){
                   //   <a className="social-instagram" href={member.instagram}><i className="fa fa-instagram"></i></a>
                   // </div>
                 // </div>
-                <div className="card" key={key}>
-                  <div className="card text-white bg-img justify-content-end h-150 w-150" style={{backgroundImage: `url(${member.node.image.childImageSharp.fluid.src})`}} data-scrim-bottom="9">
+                <div className="" key={key}>
+                  <div className="card text-white bg-img justify-content-end h-150 w-150" style={{backgroundImage: `url(${member.image.url})`}} data-scrim-bottom="9">
                   <div className="card-body flex-grow-0 pb-0">
-                    <h6 className="card-title text-center mb-0">{member.node.name}</h6>
+                    <h6 className="card-title text-center mb-0">{member.name}</h6>
                         <div className="social social-gray">
-                          <a className="social-twitter" href={member.node.twitter}><i className="fa fa-twitter"></i></a>
-                          <a className="social-facebook" href={member.node.facebook}><i className="fa fa-facebook"></i></a>
-                          <a className="social-instagram" href={member.node.instagram}><i className="fa fa-instagram"></i></a>
+                          <a className="social-twitter" href={member.twitter}><i className="fa fa-twitter"></i></a>
+                          <a className="social-facebook" href={member.facebook}><i className="fa fa-facebook"></i></a>
+                          <a className="social-instagram" href={member.instagram}><i className="fa fa-instagram"></i></a>
                       </div>
                     </div>
                   </div>
@@ -322,10 +334,10 @@ export default function AboutPage({data}){
                     <img className="rounded-md ml-md-4"  src={m.image.childImageSharp.fluid.src} alt="..."/>
                   </div>
                   <div className="col-md-6 text-center text-md-right">
-                    <p className="small-2 text-uppercase text-lightest fw-500 ls-1">Design</p>
-                    <h3 className="fw-500">Responsive Web Design</h3>
+                    <p className="small-2 text-uppercase text-lightest fw-500 ls-1">{m.type}</p>
+                    <h3 className="fw-500">{m.title}</h3>
                     <br/>
-                    <p>Instrument cultivated alteration any favourable expression law far nor. Both new like tore but year. An from mean on with when sing pain. Oh to as principles devonshire companions unsatiable an delightful. The ourselves suffering the sincerity. Inhabit her manners adapted age certain. Debating offended at branched striking be subjects.</p>
+                    <p>{m.description}</p>
                   </div>
                   
                 </div>
@@ -337,10 +349,10 @@ export default function AboutPage({data}){
                   <img className="rounded-md ml-md-4"  src={m.image.childImageSharp.fluid.src} alt="..."/>
                   </div>
                   <div className="col-md-6 text-center text-md-left">
-                    <p className="small-2 text-uppercase text-lightest fw-500 ls-1">Design</p>
-                    <h3 className="fw-500">Responsive Web Design</h3>
+                    <p className="small-2 text-uppercase text-lightest fw-500 ls-1">{m.type}</p>
+                    <h3 className="fw-500">{m.title}</h3>
                     <br/>
-                    <p>Instrument cultivated alteration any favourable expression law far nor. Both new like tore but year. An from mean on with when sing pain. Oh to as principles devonshire companions unsatiable an delightful. The ourselves suffering the sincerity. Inhabit her manners adapted age certain. Debating offended at branched striking be subjects.</p>
+                    <p>{m.description}</p>
                   </div>
                   
                 </div>
