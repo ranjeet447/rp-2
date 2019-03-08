@@ -27,6 +27,7 @@ const NavbarLight = () => (
             <a className="nav-link" href="/faq">Faq</a>
             <a className="nav-link" href="/about">About</a>
             <a className="nav-link" href="/download">Download</a>
+            <a className="nav-link" href="/city">City</a>
           </nav>
 
           <div className="d-flex align-items-center">

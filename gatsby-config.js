@@ -73,6 +73,17 @@ module.exports = {
         path: `${__dirname}/src/pages`,
       },
     },
+    {
+      resolve: "gatsby-source-graphql",
+          options: {
+          // The top level query type, can be anything you want!
+          typeName: "GCMS",
+          // The field you'll query against, can also be anything you want.
+          fieldName: "gcmsdata",
+          // Your API endpoint, available from the dashboard and settings window.
+          url: "https://api-euwest.graphcms.com/v1/cjswavs8bb4mr01fjdtcp52i1/master",
+      },
+  },
     // 'gatsby-plugin-offline',
   ],
 }

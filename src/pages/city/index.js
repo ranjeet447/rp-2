@@ -1,78 +1,56 @@
 import React from "react"
 // import { Link } from "gatsby"
-
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
-
-import Navbar from '../../components/navbar'
-import { graphql } from "gatsby";
+import Navbar from '../../components/navbar_light'
+import {graphql } from "gatsby"
+import Header from '../../templates/city-header'
 
 export default function City({data}){
-
-  console.log(data.cities.edges)
-  const cities = data.cities.edges
-  
+  const cities = data.gcmsdata.cities
+  // console.log(cities)
   return(
     <Layout>
       <SEO title="City" />
       <Navbar/>
 
-      <header className="header bg-gray">
-      <div className="container">
-        <header className="section-header">
-          <h2 className="display-3">Contact Us</h2>
-          <hr/>
-          <p className="lead">They original on mountains, drew the support time. The of to graduate into to is the to she.</p>
-        </header>
-
-
-        <div className="row gap-y text-center">
-
-          {cities.map((city,key)=>(
-            <div className="col-lg-4" key={key}>
-              <a href={city.node.frontmatter.path}>
-                <div className="card border p-5">
-                  <h5 className="mb-4">{city.node.frontmatter.title}</h5>
-                  <p className="small-1">{city.node.frontmatter.description}</p>
-                </div>
-              </a>
-            </div>
-          ))}
+    <Header/>
+    <main className="main-content">
+      <section className="section bg-gray">
+        <div className="container">
+          <div className="row">
+              {cities.map((city,key)=>(
+                  <div className="col-md-6 col-lg-4" key={key}>
+                    <div className="card d-block border hover-shadow-6 mb-6">
+                      <a href={`${city.meta.path}`}>
+                      {/* <img className="card-img-top" src={`/blogs/images/${node.frontmatter.image}`} alt="Card image cap"/> */}
+                      <div className="p-6 text-center">
+                        <h5 className="ls-2 fw-400 mb-0">{city.header.title}</h5>
+                        <p className="text-lighter">{city.header.description}</p>
+                        
+                      </div>
+                      </a>
+                    </div>
+                  </div>
+              ))}
+          </div>
         </div>
-
-
-      </div>
-    </header>
-
-      
-
+      </section>
+    </main>
 
     </Layout>
   )
 }
 
-
 export const query=graphql`
-  {
-    cities: allMarkdownRemark(
-      filter : {frontmatter: {visibility:{eq:"show"},type:{eq:"city"}}},
-    ) {
-      edges {
-        node {
-          fields{
-              slug
-          }
-          id
-          html
-          frontmatter {
-              title
-              path
-              description
-          }
-        }
-      }
+query{
+	gcmsdata{
+    cities{
+      meta
+      header
     }
-  }
-`
+  },
+}`
+
 
 

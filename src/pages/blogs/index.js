@@ -50,7 +50,7 @@ const BlogsPage = (props) => {
             </nav>
 
           </div>
-        </section>
+          </section>
         </main>
   
   </Layout>

@@ -41,7 +41,7 @@ export default class BlogList extends React.Component {
                         <div className="card d-block border hover-shadow-6 mb-6">
                             <a href={`${node.frontmatter.path}`}>
                             {/* <MyImg className="card-img-top" src={`${node.fields.slug.substr(1)}images/${node.frontmatter.image}`} alt="Card image cap"/> */}
-                            {/* <img src={node.frontmatter.image.childImageSharp.fluid.src} alt=""/> */}
+                            <img src={node.frontmatter.image.childImageSharp.fluid.src} alt=""/>
                             <div className="p-6 text-center">
                             <p className="small-5 text-lighter text-uppercase ls-2 fw-400" href="#">{node.frontmatter.date}</p>
                             <h5 className="mb-0">{node.frontmatter.title}</h5>

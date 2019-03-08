@@ -1,0 +1,9 @@
+matter:
+  - type: ity
+    visibility: show
+    title: city | Bangalore
+    path: /city/delhi
+    description: sfdsf
+    image: dwew
+  
+  

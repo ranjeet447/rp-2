@@ -70,6 +70,12 @@ exports.createPages = ({ actions, graphql }) => {
             }
           }
         }
+      },
+      gcmsdata{
+        cities(where: {status: PUBLISHED}){
+          id
+          meta
+        }
       }
     }`)
     .then(result => {
@@ -82,9 +88,10 @@ exports.createPages = ({ actions, graphql }) => {
                 const postsPerPage = 2
                 const numPages = Math.ceil(posts.length / postsPerPage)
 
-                const cities = result.data.cities.edges
+                // const cities = result.data.cities.edges
+                const cities = result.data.gcmsdata.cities
 
-                console.log(cities)
+
                 Array.from({ length: numPages }).forEach((_, i) => {
                     createPage({
                       path: i === 0 ? `/blog` : `/blog/${i + 1}`,
@@ -98,15 +105,25 @@ exports.createPages = ({ actions, graphql }) => {
                     })
                 })
 
-                cities.forEach(({node})=>{
+                cities.forEach((city)=>{
                     createPage({
-                        path: node.frontmatter.path,
-                        component: path.resolve("./src/templates/city1.js"),
-                        context: {
-                            slug: node.fields.slug,
-                        }, 
+                        path: city.meta.path,
+                        component: path.resolve("./src/templates/city-template.js"),
+                        context:{
+                            id:city.id,
+                        }
                     })
                 })
+                
+                // cities.forEach(({node})=>{
+                //     createPage({
+                //         path: node.frontmatter.path,
+                //         component: path.resolve("./src/templates/city1.js"),
+                //         context: {
+                //             slug: node.fields.slug,
+                //         }, 
+                //     })
+                // })
                 posts.forEach(({ node }) => {
                     createPage({
                         path: node.frontmatter.path,
