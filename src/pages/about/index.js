@@ -291,7 +291,7 @@ export default function AboutPage({data}){
               <p className="lead">{Team[0].description}</p>
             </header>
 
-            <div className="gap-y m-0 p-0" style={{display:'flex',flexWrap:'wrap'}}>
+            <div className="gap-y p-0 m-0" style={{display:'flex',flexWrap:'wrap',alignContent: 'flex-start',justifyContent: 'center'}}>
               {teamMembers.map((member,key)=>(
                 // <div className="col-md-6 col-lg-3 team-1" key={key}>
                 //   <a href="#">

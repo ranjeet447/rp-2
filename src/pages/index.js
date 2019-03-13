@@ -19,6 +19,7 @@ export default function IndexPage({data}){
     const download = data.download[0]
     const faq = data.faq[0]
     const questions = data.questions
+    const comm = data.team_communication
 
   return(
   <Layout>
@@ -145,13 +146,76 @@ export default function IndexPage({data}){
               <h5>{video.title}</h5>
               <p className="mb-0">{video.description}</p>
             </div>
-
-
           </div>
         </div>
       </section>
 
-          
+
+      {/* team communication */}
+
+      <section id="section-features" className="section">
+        <div className="container">
+          <header className="section-header">
+            <small>Feature</small>
+            <h2>{comm.header[0].title}</h2>
+            <hr/>
+          </header>
+
+          {comm.body.map((section,key)=>{
+            if(key%2===0){
+              return(
+                <div key={key}>
+                  <div className="row align-items-center">
+                    <div className="col-md-6 ml-auto">
+                      <h4>{section.title}</h4>
+                      <p>{section.description}</p>
+                    </div>
+                    <div className="col-md-5 order-md-first">
+                      <img src={section.image.childImageSharp.fluid.src} alt="..."/>
+                    </div>
+                  </div>
+                  <hr/>
+                </div>
+              )
+            }else{
+              return(
+                <div key={key}>
+                  <div className="row gap-y align-items-center">
+                    <div className="col-md-6 mr-auto">
+                      <h4>{section.title}</h4>
+                      <p>{section.description}</p>
+                    </div>
+
+                    <div className="col-md-5">
+                      <img src={section.image.childImageSharp.fluid.src} alt="..."/>
+                    </div>
+                  </div>
+                  <hr/> 
+                </div>
+              )
+            }
+          })}
+        </div>
+      </section>
+
+      {/* features */}
+      <section className="section bg-gray">
+        <div className="container">
+          <div className="row gap-y">
+
+            {comm.methods.map((method,key)=>(
+              <div className="col-lg-4" key={key}>
+                <div className="card card-body border text-center">
+                  <p className="my-5"><i className={`${method.icon} lead-8 text-lighter`} ></i></p>
+                  <h5>{method.title}</h5>
+                  <p>{method.description}</p>
+                  <p><a className="small-3 fw-600" href={method.link}>Read more <i className="fa fa-angle-right small-5 pl-1"></i></a></p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
           
 
       <section className="section overflow-hidden">
@@ -313,6 +377,28 @@ export const query = graphql`
             }
           }
           video_url
+        }
+        team_communication{
+          header{
+            title
+          }
+          body{
+            title
+            description
+            image{
+              childImageSharp{
+                fluid{
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+          methods{
+            title
+            icon
+            description
+            link
+          }
         }
         download {
           title

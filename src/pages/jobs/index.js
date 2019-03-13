@@ -120,7 +120,7 @@ const JobsPage = () => (
             <section className="section p-0">
               <div className="slider-arrows-flash-light slider-dots-inside slider-dots-fill-primary" data-provide="slider" data-autoplay={true} data-arrows={true} data-dots={true}>
                 {data.allSliderImagesYaml.edges.map((img,key)=>(
-                  <BackgroundImage className="bg-img h-600" fluid={img.node.image.childImageSharp.fluid} key={key}></BackgroundImage>
+                  <BackgroundImage className="bg-img h-400" fluid={img.node.image.childImageSharp.fluid} key={key}></BackgroundImage>
                 ))}
               </div>
             </section>

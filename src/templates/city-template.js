@@ -11,6 +11,8 @@ function City(props) {
 	const header = city.header
 	const cards = city.cards
 	const map = city.map
+	const about = city.about
+	const images = city.images
 	return (
 		<Layout>
 			<SEO title={title} description={description} keywords={[]} />
@@ -39,6 +41,38 @@ function City(props) {
 				</header>
 
 				<main className="main-content">
+
+					<section id="lity" className="section">
+						<div className="container">
+							<div className="row gap-y align-items-center">
+								<div className="col-lg-5 mr-auto">
+									<h2>{about.title}</h2>
+									<br/>
+									<p className="lead-2">{about.description[0]}</p>
+									<p>{about.description.slice(1)}</p>
+								</div>
+								<div className="col-lg-6">
+									<div className="gallery gallery-4-type4">
+										<a className="gallery-item" href="#">
+											<img src={images[0].url} alt="..." data-provide="lightbox"/>
+										</a>
+										<div className="gallery-item-group">
+
+											{images.slice(1).map((image,key)=>(
+												<a className="gallery-item" href="#" key={key}>
+													<img src={image.url} alt="..." data-provide="lightbox"/>
+												</a>
+											))}
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</section>
+
+
+
 					{/* | Map */}
 					<section className="section p-0">
 						<div className="h-400" data-provide="map" data-lat={map.lat} data-lng={map.long} data-marker-lat={map.lat} data-marker-lng={map.long} data-info={map.address}></div>
@@ -91,6 +125,10 @@ query($id:ID!){
       meta
       header
       cards
+			about
+      images{
+        url
+      }
       map
     }
   }

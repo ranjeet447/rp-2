@@ -68,6 +68,39 @@ video:
     image: ./thumb16.jpg
     video_url: https://www.youtube.com/watch?v=ah4pcPbRi2M
 
+team_communication:
+  header: 
+    - title: Team communication for the 21st century.
+  
+  body:
+    - title: Drag, drop, and share your files.
+      description: Not just your messages, but all your files, images, PDFs, documents, and spreadsheets can be dropped right into TheSaaS and shared with anyone you want. Add comments, star for later reference, and it’s all completely searchable.If you use any services like Google Drive, Dropbox, or Box, just paste the link and that document is immediately in sync and searchable too.
+      image: ./10.png
+
+    - title: Works everywhere you go
+      description:  Everything in TheSaaS—messages, notifications, files, and all—is automatically indexed and archived so that you can have it at your fingertips whenever you want. TheSaaS also indexes the content of every file so you can search within PDFs, Word documents, Google docs, and more. With one search box and a set of powerful search operators, you can slice and dice your way to that one message in your communication haystack.
+      image: ./11.png
+    
+    - title: All your tools in one place.
+      description: Connect all the tools you use to TheSaaS and avoid all that constant switching between apps. Set up your integration so that you get all your notifications directly within TheSaaS—from support requests, code check-ins, and error logs to sales leads—all of them searchable in one central archive.If you use any services like Google Drive, Dropbox, or Box, just paste the link and that document is immediately in sync and searchable too.
+      image : ./12.png
+  
+  methods:
+    - title: Channels
+      icon: icon-layers
+      description: Organize your team conversations in open channels. Make a channel for a project, a team, or everyone has a transparent view.
+      link: /campus
+
+    - title: Direct Messages
+      icon: icon-chat
+      description: Send messages directly to another and any person or to a small group of people for more focused conversations.
+      link: /campus
+
+    - title: Calls
+      icon: icon-mic
+      description: Take a conversation from typing to face-to-face by starting a TheSaaS voice or video call in any Channel or Direct Message.
+      link: /campus
+
 download:
   - title: Now Available
     description: As absolute is by amounted repeated entirely ye returned. These ready timed enjoy might sir yet one since. Years drift never if could forty being no. On estimable dependent as suffering on my.
