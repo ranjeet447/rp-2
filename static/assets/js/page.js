@@ -217,8 +217,8 @@ __webpack_require__(9);
     googleAnalyticsKey: null,
     reCaptchaSiteKey:   null,
     reCaptchaLanguage:  null,
-    disableAOSonMobile: true,
-    smoothScroll:       false,
+    disableAOSonMobile: false,
+    smoothScroll:       true,
   }
 
   /**
@@ -35408,7 +35408,7 @@ $(function() {
     |
     */
 
-    googleApiKey: 'AIzaSyDRBLFOTTh2NFM93HpUA4ZrA99yKnCAsto',
+    googleApiKey: 'AIzaSyAU5dhBKo17ffBieSLtxypzbwI-hTYVUZE',
 
     /*
     |--------------------------------------------------------------------------
@@ -35449,7 +35449,7 @@ $(function() {
     |
     */
 
-    disableAOSonMobile: true,
+    disableAOSonMobile: false,
 
     /*
     |--------------------------------------------------------------------------

@@ -32,8 +32,8 @@ require('objectFitPolyfill');
     googleAnalyticsKey: null,
     reCaptchaSiteKey:   null,
     reCaptchaLanguage:  null,
-    disableAOSonMobile: true,
-    smoothScroll:       false,
+    disableAOSonMobile: false,
+    smoothScroll:       true,
   }
 
   /**

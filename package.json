@@ -26,6 +26,7 @@
     "gatsby-transformer-sharp": "^2.1.13",
     "gatsby-transformer-yaml": "^2.1.8",
     "granim": "^2.0.0",
+    "graphql": "^14.1.1",
     "imagesloaded": "^4.1.4",
     "jarallax": "^1.10.7",
     "jquery": "^3.3.1",
