@@ -6,7 +6,7 @@ import Footer from "./footer"
 // import '../assets/scss/page.scss'
 // import '../assets/css/page.css'
 // require('../assets/js/src/page')
-
+import '../assets/css/fonts.css'
 class Layout extends React.Component{
 
   componentDidMount () {

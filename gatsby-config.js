@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title:`RedCarpet`,
     description: `default Description`,
-    siteUrl:``,
+    siteUrl:`https://immense-brook.netlify.com`,
     defaultImage: ``,
     author: `@RedcarpetUp`,
   },
@@ -86,7 +86,7 @@ module.exports = {
           url: "https://api-euwest.graphcms.com/v1/cjswavs8bb4mr01fjdtcp52i1/master",
       },
   },
-  // `gatsby-plugin-sitemap`,
+  `gatsby-plugin-sitemap`,
   'gatsby-plugin-offline',
   ],
 }
