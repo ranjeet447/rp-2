@@ -3,10 +3,11 @@ import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 import Footer from "./footer"
 
+
+// import '../assets/css/fonts.css'
 // import '../assets/scss/page.scss'
 // import '../assets/css/page.css'
 // require('../assets/js/src/page')
-import '../assets/css/fonts.css'
 class Layout extends React.Component{
 
   componentDidMount () {

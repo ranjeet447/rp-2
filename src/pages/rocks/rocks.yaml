@@ -1,0 +1,53 @@
+Header: 
+  title: About Us
+  description: 
+    - Awesome Template Developers 
+    - Easily track any workout you can imagine. Use any of our free workouts or make up your own.
+  image: ./3.jpg
+  video: https://www.youtube.com/embed/M5S_JBRjd1s
+
+MissionVision:
+  title: Passionate about creating templates for startups
+  mission: 
+    title: Our Mission
+    description: Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure.
+
+  vision:
+    title: Our Vision
+    description: Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure.
+  
+
+FromFounder:
+  title: From The Founder
+  image: ./9.jpg
+  description: 
+    - Instrument cultivated alteration any favourable expression law far nor. Both new like tore but year. An from mean on with when sing pain.
+    - Passage its ten led hearted removal cordial. Preference any astonished unreserved mrs. Prosperous understood middletons in conviction an uncommonly do. Supposing so be resolving breakfast am or perfectly. Is drew am hill from mr. Picture for attempt joy excited ten carried manners talking how. Suspicion neglected he resolving agreement perceived at an.
+    - Written enquire painful ye to offices forming it. Then so does over sent dull on. Likewise offended humoured mrs fat trifling answered. On ye position greatest so desirous. So wound stood guest weeks no terms up ought. By so these am so rapid blush songs begin.
+
+
+History:
+  title: Short History
+  description: TheThemeio founded to help startups, and it still shapes the way we work today.
+
+  events: 
+    - title: Launched our website
+      date: 2017-02-23
+      image: ./6.jpg
+      description: Think the or organization same proposal to affected heard reclined in be it reassuring are attained opinion, by he neighbours even again. Is and by value and that like can from world.
+
+    - title: Got the first 100 users
+      date: 2019-02-24
+      image: ./4.jpg
+      description: Think the or organization same proposal to affected heard reclined in be it reassuring are attained opinion, by he neighbours even again. Is and by value and that like can from world.
+
+    - title: Raised $1.4 million in seed funding
+      date: 2019-02-24
+      image: ./13.jpg
+      description: Think the or organization same proposal to affected heard reclined in be it reassuring are attained opinion, by he neighbours even again. Is and by value and that like can from world.
+
+    - title: 
+      date: 2019-02-24
+      image: ./16.jpg
+      description: Think the or organization same proposal to affected heard reclined in be it reassuring are attained opinion, by he neighbours even again. Is and by value and that like can from world.
+

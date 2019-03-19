@@ -31,7 +31,7 @@ export default function IndexPage({data}){
           <div className="row align-items-center h-100">
             <div className="col-lg-6">
               <h1 className="fw-600">{header[0].title}</h1>
-              <p className="lead mt-5 mb-8">{header[0].description}</p>                
+              <p className="  mt-5 mb-8">{header[0].description}</p>                
               <p className="gap-xy">
                 <a className="btn btn-round btn-primary mw-200" href={header[1].link}>{header[1].link_text}</a>
                 <a className="btn btn-round btn-outline-secondary mw-200" href={header[2].link}>{header[2].link_text}</a>
@@ -57,7 +57,7 @@ export default function IndexPage({data}){
             <small>Feature</small>
             <h2>{features[0].header}</h2>
             <hr/>
-            <p className="lead">{features[0].description}</p>
+            <p className="">{features[0].description}</p>
           </header>
 
           <div className="row gap-y">

@@ -1,13 +1,12 @@
 
 
 @font-face {
-    font-family: 'erupuregular';
-    src:url('../fonts/ErupuRegular.otf');
-    src: url('../fonts/erupuregular-webfont.woff2') format('woff2'),
-         url('../fonts/erupuregular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
+	font-family: 'erupuregular';
+	src:url('../fonts/ErupuRegular.otf');
+	src: url('../fonts/erupuregular-webfont.woff2') format('woff2'),
+				url('../fonts/erupuregular-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
 }
 
 
@@ -171,6 +170,7 @@ body {
 a {
 	text-decoration: none;
 	color: #1883ba;
+	font-family: 'erupuregular', Fallback, sans-serif;
 }
 
 h1{
@@ -181,7 +181,7 @@ h1{
 }
 
 h2{
-	font-size: 32px;
+	font-size: 24px;
 }
 h3{
 	font-size: 24px;

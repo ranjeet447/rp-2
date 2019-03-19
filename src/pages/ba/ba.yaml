@@ -1,0 +1,93 @@
+Header: 
+  title: Capital One®
+  description: 
+    -  Business Analyst Program An Unrivaled Career Choice
+  image: ./3.jpg
+  video: https://www.youtube.com/embed/M5S_JBRjd1s
+
+
+block1:
+  question: What Is Capital One?
+  title: Capital One Financial
+  description: A top 10 bank challenging the status quo
+  image: ./phone-4.png
+  features:
+    - title:  Analytical, Strategy-Driven Company
+      description: 
+        - Leverages strategy consulting disciplines in day-to-day operations and business decisions
+    - title:  Strategically Bold and Entrepreneurial Culture
+      description: 
+        - Big enough to matter, nimble enough to challenge the status quo 
+        - Pioneer in new product, pricing, risk management, and marketing strategies
+    - title: Superior Growth and Results
+      description: 
+        - One of the fastest companies ever to reach the Fortune 200 
+        - Industry-leading returns 
+        - Resilient during the downturn
+    - title: Values-Driven Company
+      description: 
+        - Unique culture rooted in teamwork and always doing the right thing 
+        - Recognized for industry-leading diversity
+
+block2:
+  question: What’s A Business Analyst?
+  title: Business Analysts
+  description: Are the associates from newhires through Presidents who run most lines of business
+  image: ./phone-3.png
+  features:
+    - title: Best of Consulting Firm Mode
+      description: 
+        - Fast pace, highly-selective recruiting and compensation of a top-tier consulting firm
+        - Work with senior executives to drive important strategy decisions
+    - title: Drive Real Business Results
+      description:
+        - Develop new strategies with hands-on mentorship, build business cases that meet our high bar, and help take our ideas to market
+    - title: High-Performance, Data-Driven and Open Culture
+      description:
+        - Challenging, collaborative, non-hierarchical, casual work environment
+        - Values creative problem-solving and rigorous, fact-based debate to driveto the best strategies
+    - title: Superior Work/Life Balance
+      description:
+        - No unwanted travel
+        - Flexible and fun work environment
+
+
+block3:
+  question: What Will I Do?
+  title: The Business Analyst Development Program
+  description: Is an unparalleled opportunity to develop world-class analytical skills and business intuition
+  image: ./header-gradient.jpg
+  features:
+    - title: Immediate Ownership
+      description:
+        - Start your career as a full-fledged member of the business
+        - Own critical projects, contribute to major decisions, and interact with teams across the country
+    - title: Mentorship and Industry-Best Training
+      description:
+        - Obsessed with attracting and developing great talent
+        - Regular feedback and development coaching
+        - Personalized training through awardwinning Capital One University, plus regular networking opportunities with peers and executives
+    - title: Solve Engaging Business Problems
+      description:
+        - Drive results by developing and testing your own hypotheses
+    
+block4:
+  question: What’s In It For Me?
+  title: Accelerate Your Career
+  description: By running part of a business from day one, developing highlysought after skills
+  image: ./header-gradient.jpg
+  features:
+    - title: Learn to Run a Business
+      description:
+        - Learn how to make integrated business decisions & how to influence senior executives
+        - Learn marketing and business analytics techniques needed to win new customers and deepen relationships with our 50 million existing customers
+    - title: Promotion
+      description:
+        - High-performing analysts are identified early and promoted quickly
+    - title: Graduate School
+      description:
+        - Exceptional track record of admission at top 3 business schools, with sponsorship for top performers
+    - title: Alumni Network
+      description:
+        - Capital One alumni hold senior positions at leading financial, hightech, investment banking, hedge fund, and private equity firms
+
