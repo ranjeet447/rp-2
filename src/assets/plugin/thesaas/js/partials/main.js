@@ -33,7 +33,7 @@ require('objectFitPolyfill');
     reCaptchaSiteKey:   null,
     reCaptchaLanguage:  null,
     disableAOSonMobile: false,
-    smoothScroll:       true,
+    smoothScroll:       false,
   }
 
   /**

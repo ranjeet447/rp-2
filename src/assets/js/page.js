@@ -218,7 +218,7 @@ __webpack_require__(9);
     reCaptchaSiteKey:   null,
     reCaptchaLanguage:  null,
     disableAOSonMobile: false,
-    smoothScroll:       true,
+    smoothScroll:       false,
   }
 
   /**
@@ -35461,7 +35461,7 @@ $(function() {
     |
     */
 
-    smoothScroll: true,
+    smoothScroll: false,
 
   });
 

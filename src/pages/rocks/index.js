@@ -22,7 +22,7 @@ export default function Rocks({data}){
 
   return(
   <Layout>
-    <SEO title="Home" description="Awsome website" keywords={[]} />
+    <SEO title="Rocks" description="Awsome website" keywords={[]} />
     <Navbar/>
 
     {/* <!-- Header --> */}

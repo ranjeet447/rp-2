@@ -78,7 +78,7 @@ $(function() {
     |
     */
 
-    smoothScroll: true,
+    smoothScroll: false,
 
   });
 

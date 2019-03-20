@@ -127,3 +127,8 @@ questions:
     answer: Of course! We’re happy to offer a free plan to anyone who wants to try our service.
   - question: Can I try your service for free?
     answer: Of course! We’re happy to offer a free plan to anyone who wants to try our service.
+
+emi: 
+  minAmount: 1000
+  maxAmount: 200000
+  rateOfInterest: 10

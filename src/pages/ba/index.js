@@ -11,15 +11,11 @@ import {graphql } from "gatsby";
 export default function Ba({data}){
 
   data = data.allBaYaml.edges[0].node
-
   const header = data.Header
   const block1 = data.block1
   const block2 = data.block2
   const block3 = data.block3
   const block4 = data.block4
-
-  console.log(data)
-   
 
   return(
   <Layout>

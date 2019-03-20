@@ -7,6 +7,8 @@ import {graphql } from "gatsby";
 // import MyImg from '../components/image';
 // import Img from 'gatsby-image'
 
+import EmiCalculator from '../components/emiCalculator'
+
 
 export default function IndexPage({data}){
     data = data.allIndexYaml.edges[0].node
@@ -20,6 +22,7 @@ export default function IndexPage({data}){
     const faq = data.faq[0]
     const questions = data.questions
     const comm = data.team_communication
+    const emi = data.emi
 
   return(
   <Layout>
@@ -31,7 +34,7 @@ export default function IndexPage({data}){
           <div className="row align-items-center h-100">
             <div className="col-lg-6">
               <h1 className="fw-600">{header[0].title}</h1>
-              <p className="  mt-5 mb-8">{header[0].description}</p>                
+              <p className="mt-5 mb-8">{header[0].description}</p>                
               <p className="gap-xy">
                 <a className="btn btn-round btn-primary mw-200" href={header[1].link}>{header[1].link_text}</a>
                 <a className="btn btn-round btn-outline-secondary mw-200" href={header[2].link}>{header[2].link_text}</a>
@@ -46,9 +49,21 @@ export default function IndexPage({data}){
         </div>
       </header>
 
+      
+
 
       {/* <!-- Main Content --> */}
       <main className="main-content">
+
+      <section className="section" id="emi_calculator">
+        <div>
+          <header className="section-header p-0 mt-0 mb-0">
+            <h2>Calculate your EMI</h2>
+            <hr/>
+          </header>
+          <EmiCalculator minAmount={emi.minAmount} maxAmount={emi.maxAmount} rateOfInterest={emi.rateOfInterest}/>    
+        </div>
+      </section>
 
       
       <section className="section">
@@ -434,6 +449,11 @@ export const query = graphql`
         questions {
           question
           answer
+        }
+        emi{
+          minAmount
+          maxAmount
+          rateOfInterest
         }
       }
     }
